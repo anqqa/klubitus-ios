@@ -7,10 +7,7 @@
 //
 
 // Our API URL
-#define APIURL [NSURL URLWithString:@"http://api.klubitus.org/v1/events/search?q=hall&limit=25&search=name&field=id:name:city:stamp_begin&order=stamp_begin.desc"]
-
-// Background queue macro
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define APIURL [NSURL URLWithString:@"http://api.klubitus.org/v1/events/browse?field=all&limit=1w&order=asc"]
 
 
 #import "MasterViewController.h"
@@ -59,7 +56,7 @@
  Load events with JSON.
  */
 - (void)fetchEvents {
-	dispatch_async(kBgQueue, ^{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		NSData  *data = [NSData dataWithContentsOfURL:APIURL];
 		NSError *error;
 		

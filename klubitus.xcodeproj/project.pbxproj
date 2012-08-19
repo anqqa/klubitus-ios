@@ -16,6 +16,10 @@
 		E9945B7D15E13E7C00EACAC6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9945B7B15E13E7C00EACAC6 /* MainStoryboard.storyboard */; };
 		E9945B8015E13E7C00EACAC6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945B7F15E13E7C00EACAC6 /* MasterViewController.m */; };
 		E9945B8315E13E7C00EACAC6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945B8215E13E7C00EACAC6 /* DetailViewController.m */; };
+		E9945B9015E1408700EACAC6 /* appicon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945B8F15E1408700EACAC6 /* appicon_57x57.png */; };
+		E9945B9215E1409D00EACAC6 /* appicon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945B9115E1409D00EACAC6 /* appicon_114x114.png */; };
+		E9945B9815E1424200EACAC6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945B9715E1424200EACAC6 /* Default.png */; };
+		E9945B9A15E1424700EACAC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945B9915E1424700EACAC6 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		E9945B7F15E13E7C00EACAC6 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		E9945B8115E13E7C00EACAC6 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		E9945B8215E13E7C00EACAC6 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		E9945B8F15E1408700EACAC6 /* appicon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_57x57.png; sourceTree = "<group>"; };
+		E9945B9115E1409D00EACAC6 /* appicon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_114x114.png; sourceTree = "<group>"; };
+		E9945B9715E1424200EACAC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E9945B9915E1424700EACAC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,10 @@
 		E9945B5A15E13E7B00EACAC6 = {
 			isa = PBXGroup;
 			children = (
+				E9945B9915E1424700EACAC6 /* Default@2x.png */,
+				E9945B9715E1424200EACAC6 /* Default.png */,
+				E9945B9115E1409D00EACAC6 /* appicon_114x114.png */,
+				E9945B8F15E1408700EACAC6 /* appicon_57x57.png */,
 				E9945B6F15E13E7B00EACAC6 /* klubitus */,
 				E9945B6815E13E7B00EACAC6 /* Frameworks */,
 				E9945B6615E13E7B00EACAC6 /* Products */,
@@ -80,13 +92,8 @@
 		E9945B6F15E13E7B00EACAC6 /* klubitus */ = {
 			isa = PBXGroup;
 			children = (
-				E9945B7815E13E7C00EACAC6 /* AppDelegate.h */,
-				E9945B7915E13E7C00EACAC6 /* AppDelegate.m */,
-				E9945B7B15E13E7C00EACAC6 /* MainStoryboard.storyboard */,
-				E9945B7E15E13E7C00EACAC6 /* MasterViewController.h */,
-				E9945B7F15E13E7C00EACAC6 /* MasterViewController.m */,
-				E9945B8115E13E7C00EACAC6 /* DetailViewController.h */,
-				E9945B8215E13E7C00EACAC6 /* DetailViewController.m */,
+				E9945B8A15E1405200EACAC6 /* GFX */,
+				E9945B8915E13EE900EACAC6 /* GUI */,
 				E9945B7015E13E7B00EACAC6 /* Supporting Files */,
 			);
 			path = klubitus;
@@ -101,6 +108,27 @@
 				E9945B7715E13E7C00EACAC6 /* klubitus-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9945B8915E13EE900EACAC6 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				E9945B7815E13E7C00EACAC6 /* AppDelegate.h */,
+				E9945B7915E13E7C00EACAC6 /* AppDelegate.m */,
+				E9945B7B15E13E7C00EACAC6 /* MainStoryboard.storyboard */,
+				E9945B7E15E13E7C00EACAC6 /* MasterViewController.h */,
+				E9945B7F15E13E7C00EACAC6 /* MasterViewController.m */,
+				E9945B8115E13E7C00EACAC6 /* DetailViewController.h */,
+				E9945B8215E13E7C00EACAC6 /* DetailViewController.m */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		E9945B8A15E1405200EACAC6 /* GFX */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GFX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +184,10 @@
 			files = (
 				E9945B7415E13E7B00EACAC6 /* InfoPlist.strings in Resources */,
 				E9945B7D15E13E7C00EACAC6 /* MainStoryboard.storyboard in Resources */,
+				E9945B9015E1408700EACAC6 /* appicon_57x57.png in Resources */,
+				E9945B9215E1409D00EACAC6 /* appicon_114x114.png in Resources */,
+				E9945B9815E1424200EACAC6 /* Default.png in Resources */,
+				E9945B9A15E1424700EACAC6 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +282,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -261,7 +295,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

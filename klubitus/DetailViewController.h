@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController {
+	IBOutlet UIImageView *flyerImage;
+	IBOutlet UILabel     *nameLabel;
+}
 
 @property (strong, nonatomic) id detailItem;
 

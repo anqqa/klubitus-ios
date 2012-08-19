@@ -26,14 +26,33 @@
     }
 }
 
-- (void)configureView
-{
-    // Update the user interface for the detail item.
 
+/**
+ Setup event detail view.
+ */
+- (void)configureView {
 	if (self.detailItem) {
-	    self.detailDescriptionLabel.text = [self.detailItem description];
+		NSDictionary *event = self.detailItem;
+		
+		// Name
+		NSString *name = [event objectForKey:@"name"];
+		nameLabel.lineBreakMode = UILineBreakModeWordWrap;
+		nameLabel.numberOfLines = 0;
+		nameLabel.text          = name;
+
+		// Flyer
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			NSString *flyerUrl = [event objectForKey:@"flyer_front_thumb"];
+			NSData       *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:flyerUrl]];
+			
+			dispatch_async(dispatch_get_main_queue(), ^{
+				flyerImage.image = [UIImage imageWithData:data];
+			});
+		});
+		
 	}
 }
+
 
 - (void)viewDidLoad
 {
