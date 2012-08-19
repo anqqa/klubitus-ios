@@ -6,14 +6,22 @@
 //  Copyright (c) 2012 Antti Qvickström. All rights reserved.
 //
 
-#import "MasterViewController.h"
+// Our API URL
+#define APIURL [NSURL URLWithString:@"http://api.klubitus.org/v1/events/search?q=hall&limit=25&search=name&field=id:name:city:stamp_begin&order=stamp_begin.desc"]
 
+// Background queue macro
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
+
+#import "MasterViewController.h"
 #import "DetailViewController.h"
+
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
 }
 @end
+
 
 @implementation MasterViewController
 
@@ -22,15 +30,73 @@
     [super awakeFromNib];
 }
 
+
+/**
+ Get event cell.
+ 
+ @returns  cell
+ */
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString *CellIdentifier = @"EventCell";
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+	}
+	
+	NSDictionary *event = [events objectAtIndex:indexPath.row];
+	NSString      *name = [event objectForKey:@"name"];
+	NSString      *city = [event objectForKey:@"city"];
+	
+	cell.textLabel.text = name;
+	cell.detailTextLabel.text = city;
+	
+	return cell;
+}
+
+
+/**
+ Load events with JSON.
+ */
+- (void)fetchEvents {
+	dispatch_async(kBgQueue, ^{
+		NSData  *data = [NSData dataWithContentsOfURL:APIURL];
+		NSError *error;
+		
+		NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+		events = [response objectForKey:@"events"];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.tableView reloadData];
+		});
+	});
+}
+
+
+/**
+ Get event count.
+ 
+ @returns  count
+ */
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return events.count;
+}
+
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
+	
+	[self fetchEvents];
+	/*
 	// Do any additional setup after loading the view, typically from a nib.
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 	self.navigationItem.rightBarButtonItem = addButton;
+	*/
 }
+
 
 - (void)viewDidUnload
 {
@@ -60,19 +126,6 @@
 	return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	return _objects.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-
-	NSDate *object = [_objects objectAtIndex:indexPath.row];
-	cell.textLabel.text = [object description];
-    return cell;
-}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -108,11 +161,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = [_objects objectAtIndex:indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
-    }
+	if ([[segue identifier] isEqualToString:@"showEvent"]) {
+		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+		NSDictionary    *event = [events objectAtIndex:indexPath.row];
+	
+		[[segue destinationViewController] setDetailItem:event];
+	}
 }
 
 @end
