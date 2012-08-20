@@ -156,10 +156,8 @@
 		NSArray        *events = [response objectForKey:@"events"];
 		
 		// Order by day
-		NSMutableArray          *keys = [[NSMutableArray alloc] init];
-		NSMutableDictionary *contents = [[NSMutableDictionary alloc] init];
+		NSMutableDictionary *contents = [NSMutableDictionary dictionary];
 		for (NSDictionary *event in events) {
-			NSLog(@"Parsing event.. %@", [event objectForKey:@"name"]);
 			
 			// Parse UNIX timestamp to date with 00:00:00
 			NSDate *day = [NSDate dateWithTimeIntervalSince1970:[[event objectForKey:@"stamp_begin"] intValue]];
@@ -168,15 +166,13 @@
 			// Make sure we have the day section
 			NSMutableArray *dayEvents = [contents objectForKey:day];
 			if (dayEvents == nil) {
-				NSLog(@"Creating new section for %@", day);
-				dayEvents = [[NSMutableArray alloc] init];
+				dayEvents = [NSMutableArray array];
+
 				[contents setObject:dayEvents forKey:day];
-				NSLog(@"Sections: %d", contents.count);
 			}
 			
 			// Add the event to the day
 			[dayEvents addObject:event];
-			NSLog(@"Sections: %d", contents.count);
 			
 		}
 		
@@ -184,8 +180,6 @@
 		NSArray *unsortedDays = [contents allKeys];
 		[self setSectionKeys:[unsortedDays sortedArrayUsingSelector:@selector(compare:)]];
 		[self setSections:contents];
-		
-		NSLog(@"Sections: %d, Events: %d", self.sections.count, self.sectionKeys.count);
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self.tableView reloadData];
