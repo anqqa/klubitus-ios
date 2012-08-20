@@ -36,20 +36,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"EventCell";
 	
+	// Configure cell
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
+	UILabel          *nameLabel = (UILabel *)[cell viewWithTag:100];
+	UILabel      *locationLabel = (UILabel *)[cell viewWithTag:101];
+	UIImageView *flyerImageView = (UIImageView *)[cell viewWithTag:102];
 	
 	// Get needed info
 	NSDictionary *event = [events objectAtIndex:indexPath.row];
 	NSString      *name = [event objectForKey:@"name"];
 	NSString     *venue = [event objectForKey:@"venue"];
 	NSString      *city = [event objectForKey:@"city"];
+	NSString     *flyer = [event objectForKey:@"flyer_front_icon"];
 	NSString  *location = @"";
 	
 	// Name
-	cell.textLabel.text = name;
+	nameLabel.text = name;
 	
 	// Location
 	bool hasVenue = !!venue && ![venue isEqual:[NSNull null]];
@@ -61,7 +66,21 @@
 	} else if (hasCity) {
 		location = city;
 	}
-	cell.detailTextLabel.text = location;
+	locationLabel.text = location;
+
+	// Flyer
+	if (!!flyer && ![flyer isEqual:[NSNull null]]) {
+		NSURL *flyerURL = [NSURL URLWithString:flyer];
+		if (flyerURL != nil) {
+			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+				NSData *data = [NSData dataWithContentsOfURL:flyerURL];
+				
+				dispatch_async(dispatch_get_main_queue(), ^{
+					flyerImageView.image = [UIImage imageWithData:data];
+				});
+			});
+		}
+	}
 	
 	return cell;
 }
