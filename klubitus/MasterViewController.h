@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController {
-	NSArray *events;
-}
-
--(void)fetchEvents;
+@interface MasterViewController : UITableViewController {}
 
 @end

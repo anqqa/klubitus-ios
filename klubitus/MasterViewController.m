@@ -14,17 +14,67 @@
 #import "DetailViewController.h"
 
 
-@interface MasterViewController () {
-    NSMutableArray *_objects;
-}
+@interface MasterViewController ()
+	
+@property (strong, nonatomic) NSArray *sectionKeys;
+@property (strong, nonatomic) NSMutableDictionary *sections;
+@property (strong, nonatomic) NSDateFormatter *dayDateFormatter;
+
+- (NSDate *)timeToDate:(NSDate *)inputDate;
+
 @end
+
 
 
 @implementation MasterViewController
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
+@synthesize sectionKeys;
+@synthesize sections;
+@synthesize dayDateFormatter;
+
+
+- (void)awakeFromNib {
+	[super awakeFromNib];
+}
+
+
+#pragma mark - View lifecycle
+
+/**
+ View loaded.
+ */
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	// Create our section header date formatter
+	self.dayDateFormatter = [[NSDateFormatter alloc] init];
+	[self.dayDateFormatter setDateStyle:NSDateFormatterLongStyle];
+	[self.dayDateFormatter setTimeStyle:NSDateFormatterNoStyle];
+	
+	[self fetchEvents];
+}
+
+
+- (void)viewDidUnload {
+	[super viewDidUnload];
+}
+
+
+/**
+ Convert a date with time to date at 00:00:00
+ */
+- (NSDate *)timeToDate:(NSDate *)inputDate {
+	NSCalendar *calendar = [NSCalendar currentCalendar];
+	[calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+	
+	NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:inputDate];
+	[components setHour:0];
+	[components setMinute:0];
+	[components setSecond:0];
+	
+	NSDate *outputDate = [calendar dateFromComponents:components];
+	
+	return outputDate;
 }
 
 
@@ -45,8 +95,12 @@
 	UILabel      *locationLabel = (UILabel *)[cell viewWithTag:101];
 	UIImageView *flyerImageView = (UIImageView *)[cell viewWithTag:102];
 	
-	// Get needed info
+	// Get section
+	NSDate         *day = [self.sectionKeys objectAtIndex:indexPath.section];
+	NSArray     *events = [self.sections objectForKey:day];
 	NSDictionary *event = [events objectAtIndex:indexPath.row];
+
+	// Get needed info
 	NSString      *name = [event objectForKey:@"name"];
 	NSString     *venue = [event objectForKey:@"venue"];
 	NSString      *city = [event objectForKey:@"city"];
@@ -92,11 +146,46 @@
  */
 - (void)fetchEvents {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		
+		// Load data
 		NSData  *data = [NSData dataWithContentsOfURL:APIURL];
 		NSError *error;
 		
+		// Parse JSON
 		NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-		events = [response objectForKey:@"events"];
+		NSArray        *events = [response objectForKey:@"events"];
+		
+		// Order by day
+		NSMutableArray          *keys = [[NSMutableArray alloc] init];
+		NSMutableDictionary *contents = [[NSMutableDictionary alloc] init];
+		for (NSDictionary *event in events) {
+			NSLog(@"Parsing event.. %@", [event objectForKey:@"name"]);
+			
+			// Parse UNIX timestamp to date with 00:00:00
+			NSDate *day = [NSDate dateWithTimeIntervalSince1970:[[event objectForKey:@"stamp_begin"] intValue]];
+			day         = [self timeToDate:day];
+
+			// Make sure we have the day section
+			NSMutableArray *dayEvents = [contents objectForKey:day];
+			if (dayEvents == nil) {
+				NSLog(@"Creating new section for %@", day);
+				dayEvents = [[NSMutableArray alloc] init];
+				[contents setObject:dayEvents forKey:day];
+				NSLog(@"Sections: %d", contents.count);
+			}
+			
+			// Add the event to the day
+			[dayEvents addObject:event];
+			NSLog(@"Sections: %d", contents.count);
+			
+		}
+		
+		// Create ordered day list
+		NSArray *unsortedDays = [contents allKeys];
+		[self setSectionKeys:[unsortedDays sortedArrayUsingSelector:@selector(compare:)]];
+		[self setSections:contents];
+		
+		NSLog(@"Sections: %d, Events: %d", self.sections.count, self.sectionKeys.count);
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self.tableView reloadData];
@@ -111,36 +200,18 @@
  @returns  count
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return events.count;
-}
-
-
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
+	NSDate        *day = [self.sectionKeys objectAtIndex:section];
+	NSArray *dayEvents = [self.sections objectForKey:day];
 	
-	[self fetchEvents];
-	/*
-	// Do any additional setup after loading the view, typically from a nib.
-	self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-	self.navigationItem.rightBarButtonItem = addButton;
-	*/
+	return dayEvents.count;
 }
 
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
-
+/*
 - (void)insertNewObject:(id)sender
 {
     if (!_objects) {
@@ -150,21 +221,36 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+*/
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-	return 1;
+/**
+ Get number of days.
+ 
+ @returns  integer
+ */
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return [self.sectionKeys count];
 }
 
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+/**
+ Get section header.
+ */
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	NSDate *day = [self.sectionKeys objectAtIndex:section];
+	
+	return [self.dayDateFormatter stringFromDate:day];
 }
 
+
+/*
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+*/
+/*
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -174,6 +260,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
+*/
 
 /*
 // Override to support rearranging the table view.
@@ -195,6 +282,8 @@
 {
 	if ([[segue identifier] isEqualToString:@"showEvent"]) {
 		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+		NSDate            *day = [self.sectionKeys objectAtIndex:indexPath.section];
+		NSArray        *events = [self.sections objectForKey:day];
 		NSDictionary    *event = [events objectAtIndex:indexPath.row];
 	
 		[[segue destinationViewController] setDetailItem:event];
