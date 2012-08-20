@@ -41,22 +41,30 @@
 		nameLabel.text          = name;
 
 		// Flyer
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			NSString *flyerUrl = [event objectForKey:@"flyer_front_thumb"];
-			NSData       *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:flyerUrl]];
+		NSString *flyer = [event objectForKey:@"flyer_front_thumb"];
+		if (!!flyer && ![flyer isEqual:[NSNull null]]) {
+			NSURL *flyerURL = [NSURL URLWithString:flyer];
+			if (flyerURL != nil) {
+				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+					NSData *data = [NSData dataWithContentsOfURL:flyerURL];
 			
-			dispatch_async(dispatch_get_main_queue(), ^{
-				flyerImage.image = [UIImage imageWithData:data];
-			});
-		});
+					dispatch_async(dispatch_get_main_queue(), ^{
+						flyerImage.image = [UIImage imageWithData:data];
+					});
+				});
+			}
+		}
 		
 	}
 }
 
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+/**
+ View loaded.
+ */
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
 	// Do any additional setup after loading the view, typically from a nib.
 	[self configureView];
 }

@@ -7,7 +7,7 @@
 //
 
 // Our API URL
-#define APIURL [NSURL URLWithString:@"http://api.klubitus.org/v1/events/browse?field=all&limit=1w&order=asc"]
+#define APIURL [NSURL URLWithString:@"http://api.klubitus.org/v1/events/browse?field=all&limit=1w&order=desc"]
 
 
 #import "MasterViewController.h"
@@ -41,12 +41,27 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
 	
+	// Get needed info
 	NSDictionary *event = [events objectAtIndex:indexPath.row];
 	NSString      *name = [event objectForKey:@"name"];
+	NSString     *venue = [event objectForKey:@"venue"];
 	NSString      *city = [event objectForKey:@"city"];
+	NSString  *location = @"";
 	
+	// Name
 	cell.textLabel.text = name;
-	cell.detailTextLabel.text = city;
+	
+	// Location
+	bool hasVenue = !!venue && ![venue isEqual:[NSNull null]];
+	bool hasCity  = !!city && ![city isEqual:[NSNull null]];
+	if (hasVenue && hasCity) {
+		location = [NSString stringWithFormat:@"%@, %@", venue, city];
+	} else if (hasVenue) {
+		location = venue;
+	} else if (hasCity) {
+		location = city;
+	}
+	cell.detailTextLabel.text = location;
 	
 	return cell;
 }
