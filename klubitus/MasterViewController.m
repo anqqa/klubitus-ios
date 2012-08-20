@@ -69,6 +69,7 @@
 	locationLabel.text = location;
 
 	// Flyer
+	flyerImageView.image = nil;
 	if (!!flyer && ![flyer isEqual:[NSNull null]]) {
 		NSURL *flyerURL = [NSURL URLWithString:flyer];
 		if (flyerURL != nil) {
