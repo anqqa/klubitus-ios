@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -45,13 +46,7 @@
 		if (!!flyer && ![flyer isEqual:[NSNull null]]) {
 			NSURL *flyerURL = [NSURL URLWithString:flyer];
 			if (flyerURL != nil) {
-				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-					NSData *data = [NSData dataWithContentsOfURL:flyerURL];
-			
-					dispatch_async(dispatch_get_main_queue(), ^{
-						flyerImage.image = [UIImage imageWithData:data];
-					});
-				});
+				[flyerImage setImageWithURL:flyerURL];
 			}
 		}
 		

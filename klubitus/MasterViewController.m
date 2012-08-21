@@ -9,7 +9,8 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "SVPullToRefresh.h"
-
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MasterViewController ()
 	
@@ -59,7 +60,7 @@
 	// Start loading from today
 	self.lastDay = self.firstDay = [self timeToDate:[NSDate date]];
 	
-	// Initialize infinite scroller
+	// Initialize infinite scroller and pull to refresh, with initial refresh in other direction..
 	__block MasterViewController *blocksafeSelf = self;
 	[self.tableView addInfiniteScrollingWithActionHandler:^{
 		NSLog(@"Infinite scrolling!1");
@@ -71,9 +72,9 @@
 		
 		[blocksafeSelf fetchEventsWithOrder:@"desc"];
 	}];
-	
-//	[self.tableView.pullToRefreshView triggerRefresh];
-	[self fetchEventsWithOrder:@"asc"];
+	[self.tableView.pullToRefreshView triggerRefresh];
+
+	//	[self fetchEventsWithOrder:@"asc"];
 }
 
 
@@ -107,25 +108,28 @@
  Load events with JSON.
  */
 - (void)fetchEventsWithOrder:(NSString *)inputOrder {
+	
+	// Kludge to always order first request descending because we are triggering refresh onViewLoad
+	if ([self.lastDay isEqualToDate:self.firstDay]) {
+		inputOrder = @"asc";
+	}
+	
 	NSDate *fromDate = ([inputOrder isEqualToString:@"asc"]) ? self.lastDay : self.firstDay;
 	int from = [fromDate timeIntervalSince1970];
 	NSString *APIBasePath = @"http://api.klubitus.org/v1/events/browse?field=all&limit=1w&order=%@&from=%d";
 	NSString *APIPath     = [NSString stringWithFormat:APIBasePath, inputOrder, from];
 	NSURL    *APIURL      = [NSURL URLWithString:APIPath];
+	NSURLRequest *request = [NSURLRequest requestWithURL:APIURL];
 	
 	NSLog(@"Fetching events..");
 	NSLog(@"%@", self.firstDay);
 	NSLog(@"%@", self.lastDay);
 	NSLog(@"%@", APIPath);
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		
-		// Load data
-		NSData  *data = [NSData dataWithContentsOfURL:APIURL];
-		NSError *error;
-		
-		// Parse JSON
-		NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-		NSArray        *events = [response objectForKey:@"events"];
+	
+	// Create load operation
+	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+
+		NSArray *events = [JSON objectForKey:@"events"];
 		
 		// Order by day
 		for (NSDictionary *event in events) {
@@ -152,19 +156,20 @@
 			
 		}
 		
+		
 		// Create ordered day list
 		NSArray *unsortedDays = [self.sections allKeys];
 		self.sectionKeys = [unsortedDays sortedArrayUsingSelector:@selector(compare:)];
 		
 		// Bump last day to the next day so we don't reload those, surviving daylight
 		self.lastDay = [self timeToDate:[self.lastDay dateByAddingTimeInterval:(60 * 60 * 25)]];
+	
+		[self.tableView.pullToRefreshView stopAnimating];
 		
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self.tableView.pullToRefreshView stopAnimating];
-			
-			[self.tableView reloadData];
-		});
-	});
+		[self.tableView reloadData];
+	} failure:nil];
+
+	[operation start];
 	NSLog(@".. done!");
 }
 
@@ -216,13 +221,7 @@
 	if (!!flyer && ![flyer isEqual:[NSNull null]]) {
 		NSURL *flyerURL = [NSURL URLWithString:flyer];
 		if (flyerURL != nil) {
-			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-				NSData *data = [NSData dataWithContentsOfURL:flyerURL];
-				
-				dispatch_async(dispatch_get_main_queue(), ^{
-					flyerImageView.image = [UIImage imageWithData:data];
-				});
-			});
+			[flyerImageView setImageWithURL:flyerURL];
 		}
 	}
 	
