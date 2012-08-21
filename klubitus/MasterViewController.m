@@ -6,12 +6,9 @@
 //  Copyright (c) 2012 Antti Qvickström. All rights reserved.
 //
 
-// Our API URL
-#define APIURL [NSURL URLWithString:@"http://api.klubitus.org/v1/events/browse?field=all&limit=1w&order=desc"]
-
-
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "SVPullToRefresh.h"
 
 
 @interface MasterViewController ()
@@ -19,6 +16,8 @@
 @property (strong, nonatomic) NSArray *sectionKeys;
 @property (strong, nonatomic) NSMutableDictionary *sections;
 @property (strong, nonatomic) NSDateFormatter *dayDateFormatter;
+@property (strong, nonatomic) NSDate *firstDay;
+@property (strong, nonatomic) NSDate *lastDay;
 
 - (NSDate *)timeToDate:(NSDate *)inputDate;
 
@@ -31,6 +30,8 @@
 @synthesize sectionKeys;
 @synthesize sections;
 @synthesize dayDateFormatter;
+@synthesize firstDay;
+@synthesize lastDay;
 
 
 - (void)awakeFromNib {
@@ -51,7 +52,19 @@
 	[self.dayDateFormatter setDateStyle:NSDateFormatterLongStyle];
 	[self.dayDateFormatter setTimeStyle:NSDateFormatterNoStyle];
 	
-	[self fetchEvents];
+	// Start loading from today
+	self.lastDay = self.firstDay = [self timeToDate:[NSDate date]];
+	
+	// Initialize infinite scroller
+	__block MasterViewController *blocksafeSelf = self;
+	[self.tableView addInfiniteScrollingWithActionHandler:^{
+		NSLog(@"Infinite scrolling!1");
+	
+		[blocksafeSelf fetchEventsWithOrder:@"asc"];
+	}];
+	
+//	[self.tableView.pullToRefreshView triggerRefresh];
+	[self fetchEventsWithOrder:@"asc"];
 }
 
 
@@ -59,6 +72,8 @@
 	[super viewDidUnload];
 }
 
+
+#pragma mark Custom functions
 
 /**
  Convert a date with time to date at 00:00:00
@@ -78,10 +93,77 @@
 }
 
 
+
+/**
+ Load events with JSON.
+ */
+- (void)fetchEventsWithOrder:(NSString *)inputOrder {
+	NSDate *fromDate = ([inputOrder isEqualToString:@"asc"]) ? self.lastDay : self.firstDay;
+	int from = [fromDate timeIntervalSince1970];
+	NSString *APIBasePath = @"http://api.klubitus.org/v1/events/browse?field=all&limit=1w&order=%@&from=%d";
+	NSString *APIPath     = [NSString stringWithFormat:APIBasePath, inputOrder, from];
+	NSURL    *APIURL      = [NSURL URLWithString:APIPath];
+	
+	NSLog(@"Fetching events..");
+	NSLog(@"%@", self.firstDay);
+	NSLog(@"%@", self.lastDay);
+	NSLog(@"%@", APIPath);
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		
+		// Load data
+		NSData  *data = [NSData dataWithContentsOfURL:APIURL];
+		NSError *error;
+		
+		// Parse JSON
+		NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+		NSArray        *events = [response objectForKey:@"events"];
+		
+		// Order by day
+		NSMutableDictionary *contents = [NSMutableDictionary dictionary];
+		for (NSDictionary *event in events) {
+			
+			// Parse UNIX timestamp to NSDate with time at 00:00:00
+			NSDate *day = [NSDate dateWithTimeIntervalSince1970:[[event objectForKey:@"stamp_begin"] intValue]];
+			day         = [self timeToDate:day];
+			
+			// Keep track of edge days
+			self.firstDay = (self.firstDay == nil) ? day : [self.firstDay earlierDate:day];
+			self.lastDay  = (self.lastDay == nil) ? day : [self.lastDay laterDate:day];
+
+			
+			// Make sure we have the day section
+			NSMutableArray *dayEvents = [contents objectForKey:day];
+			if (dayEvents == nil) {
+				dayEvents = [NSMutableArray array];
+				
+				[contents setObject:dayEvents forKey:day];
+			}
+			
+			// Add the event to the day
+			[dayEvents addObject:event];
+			
+		}
+		
+		// Create ordered day list
+		NSArray *unsortedDays = [contents allKeys];
+		[self setSectionKeys:[unsortedDays sortedArrayUsingSelector:@selector(compare:)]];
+		[self setSections:contents];
+		
+		// Bump last day to the next day so we don't reload those, surviving daylight
+		self.lastDay = [self timeToDate:[self.lastDay dateByAddingTimeInterval:(60 * 60 * 25)]];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.tableView.pullToRefreshView stopAnimating];
+			
+			[self.tableView reloadData];
+		});
+	});
+	NSLog(@".. done!");
+}
+
+
 /**
  Get event cell.
- 
- @returns  cell
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"EventCell";
@@ -141,63 +223,15 @@
 }
 
 
-/**
- Load events with JSON.
- */
-- (void)fetchEvents {
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		
-		// Load data
-		NSData  *data = [NSData dataWithContentsOfURL:APIURL];
-		NSError *error;
-		
-		// Parse JSON
-		NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-		NSArray        *events = [response objectForKey:@"events"];
-		
-		// Order by day
-		NSMutableDictionary *contents = [NSMutableDictionary dictionary];
-		for (NSDictionary *event in events) {
-			
-			// Parse UNIX timestamp to date with 00:00:00
-			NSDate *day = [NSDate dateWithTimeIntervalSince1970:[[event objectForKey:@"stamp_begin"] intValue]];
-			day         = [self timeToDate:day];
-
-			// Make sure we have the day section
-			NSMutableArray *dayEvents = [contents objectForKey:day];
-			if (dayEvents == nil) {
-				dayEvents = [NSMutableArray array];
-
-				[contents setObject:dayEvents forKey:day];
-			}
-			
-			// Add the event to the day
-			[dayEvents addObject:event];
-			
-		}
-		
-		// Create ordered day list
-		NSArray *unsortedDays = [contents allKeys];
-		[self setSectionKeys:[unsortedDays sortedArrayUsingSelector:@selector(compare:)]];
-		[self setSections:contents];
-		
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self.tableView reloadData];
-		});
-	});
-}
-
 
 /**
- Get event count.
- 
- @returns  count
+ Get event count per day.
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSDate        *day = [self.sectionKeys objectAtIndex:section];
 	NSArray *dayEvents = [self.sections objectForKey:day];
 	
-	return dayEvents.count;
+	return [dayEvents count];
 }
 
 
@@ -217,12 +251,11 @@
 }
 */
 
+
 #pragma mark - Table View
 
 /**
  Get number of days.
- 
- @returns  integer
  */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return [self.sectionKeys count];
