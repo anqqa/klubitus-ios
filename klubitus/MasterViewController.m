@@ -54,13 +54,15 @@
 	
 	// Create our section header date formatter
 	self.dayDateFormatter = [[NSDateFormatter alloc] init];
-	[self.dayDateFormatter setDateStyle:NSDateFormatterLongStyle];
+	[self.dayDateFormatter setDateStyle:NSDateFormatterFullStyle];
 	[self.dayDateFormatter setTimeStyle:NSDateFormatterNoStyle];
 	
 	// Start loading from today
 	self.lastDay = self.firstDay = [self timeToDate:[NSDate date]];
 	
 	// Initialize infinite scroller and pull to refresh, with initial refresh in other direction..
+	self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+	self.tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 	__block MasterViewController *blocksafeSelf = self;
 	[self.tableView addInfiniteScrollingWithActionHandler:^{
 		NSLog(@"Infinite scrolling!1");
@@ -270,6 +272,22 @@
 
 /**
  Get section header.
+ */
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+	NSDate *day = [self.sectionKeys objectAtIndex:section];
+	
+	UILabel *sectionHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+	sectionHeader.backgroundColor = [UIColor colorWithWhite:0.25 alpha:0.5];
+	sectionHeader.font            = [UIFont italicSystemFontOfSize:14];
+	sectionHeader.textColor       = [UIColor whiteColor];
+	sectionHeader.text            = [self.dayDateFormatter stringFromDate:day];
+	
+	return sectionHeader;
+}
+
+
+/**
+ Get section header title.
  */
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	NSDate *day = [self.sectionKeys objectAtIndex:section];
