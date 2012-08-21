@@ -47,6 +47,10 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	// Init sections
+	self.sections    = [NSMutableDictionary dictionary];
+	self.sectionKeys = [NSMutableArray array];
+	
 	// Create our section header date formatter
 	self.dayDateFormatter = [[NSDateFormatter alloc] init];
 	[self.dayDateFormatter setDateStyle:NSDateFormatterLongStyle];
@@ -61,6 +65,11 @@
 		NSLog(@"Infinite scrolling!1");
 	
 		[blocksafeSelf fetchEventsWithOrder:@"asc"];
+	}];
+	[self.tableView addPullToRefreshWithActionHandler:^{
+		NSLog(@"Refresh");
+		
+		[blocksafeSelf fetchEventsWithOrder:@"desc"];
 	}];
 	
 //	[self.tableView.pullToRefreshView triggerRefresh];
@@ -119,7 +128,6 @@
 		NSArray        *events = [response objectForKey:@"events"];
 		
 		// Order by day
-		NSMutableDictionary *contents = [NSMutableDictionary dictionary];
 		for (NSDictionary *event in events) {
 			
 			// Parse UNIX timestamp to NSDate with time at 00:00:00
@@ -132,11 +140,11 @@
 
 			
 			// Make sure we have the day section
-			NSMutableArray *dayEvents = [contents objectForKey:day];
+			NSMutableArray *dayEvents = [self.sections objectForKey:day];
 			if (dayEvents == nil) {
 				dayEvents = [NSMutableArray array];
 				
-				[contents setObject:dayEvents forKey:day];
+				[self.sections setObject:dayEvents forKey:day];
 			}
 			
 			// Add the event to the day
@@ -145,9 +153,8 @@
 		}
 		
 		// Create ordered day list
-		NSArray *unsortedDays = [contents allKeys];
-		[self setSectionKeys:[unsortedDays sortedArrayUsingSelector:@selector(compare:)]];
-		[self setSections:contents];
+		NSArray *unsortedDays = [self.sections allKeys];
+		self.sectionKeys = [unsortedDays sortedArrayUsingSelector:@selector(compare:)];
 		
 		// Bump last day to the next day so we don't reload those, surviving daylight
 		self.lastDay = [self timeToDate:[self.lastDay dateByAddingTimeInterval:(60 * 60 * 25)]];
