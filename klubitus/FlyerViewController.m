@@ -75,7 +75,7 @@
 	[self configureView];
 	// Do any additional setup after loading the view.
 }
-
+	
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -94,6 +94,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([[segue identifier] isEqualToString:@"showFlyerBack"] || [[segue identifier] isEqualToString:@"showFlyerBack2"]) {
 		[[segue destinationViewController] setDetailItem:self.detailItem];
+	}
+}
+
+
+- (IBAction)flipFlyer:(id)sender {
+	if (flipButton.enabled) {
+		[self performSegueWithIdentifier:@"showFlyerBack" sender:sender];
 	}
 }
 

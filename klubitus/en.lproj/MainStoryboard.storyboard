@@ -267,7 +267,7 @@
                 </viewController>
                 <swipeGestureRecognizer direction="left" id="nl8-iS-Ta9">
                     <connections>
-                        <segue destination="a1V-LO-Jte" kind="modal" identifier="showFlyerBack2" modalTransitionStyle="flipHorizontal" id="i6B-Yt-6FP"/>
+                        <action selector="flipFlyer:" destination="41u-aW-ZQG" id="3Mz-d7-blP"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -367,7 +367,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="i6B-Yt-6FP"/>
-    </inferredMetricsTieBreakers>
 </document>
