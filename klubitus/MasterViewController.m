@@ -51,7 +51,7 @@
 	
 	self.tableView.backgroundColor = [UIColor colorWithWhite:0.12 alpha:1];
 	self.tableView.separatorColor  = [UIColor colorWithWhite:0.17 alpha:1];
-	self.tableView.rowHeight       = 60;
+	//self.tableView.rowHeight       = 60;
 	
 	// Init sections
 	self.sections    = [NSMutableDictionary dictionary];
@@ -134,7 +134,7 @@
 		for (NSDictionary *event in events) {
 			
 			// Parse UNIX timestamp to NSDate with time at 00:00:00
-			NSDate *day = [NSDate dateWithTimeIntervalSince1970:[[event objectForKey:@"stamp_begin"] intValue]];
+			NSDate *day = [NSDate dateWithTimeIntervalSince1970:[[event stringForKey:@"stamp_begin"] intValue]];
 			day         = [self timeToDate:day];
 			
 			// Keep track of edge days
@@ -276,7 +276,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 	NSDate *day = [self.sectionKeys objectAtIndex:section];
 	
-	UILabel *sectionHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+	UILabel *sectionHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
 	sectionHeader.backgroundColor = [UIColor colorWithWhite:0.05 alpha:0.75];
 	sectionHeader.shadowOffset    = CGSizeMake(1, 1);
 	sectionHeader.shadowColor     = [UIColor blackColor];
