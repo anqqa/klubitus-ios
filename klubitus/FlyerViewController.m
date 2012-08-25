@@ -15,7 +15,7 @@
 - (void)configureView;
 @end
 
-@implementation FlyerViewController
+@implementation FlyerViewController 
 
 
 #pragma mark - Managing the detail item
@@ -68,8 +68,10 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+/**
+ Initialize view.
+ */
+- (void)viewDidLoad {
 	[super viewDidLoad];
 	
 	[self configureView];
@@ -92,12 +94,70 @@
  Prepare segue.
  */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	if ([[segue identifier] isEqualToString:@"showFlyerBack"] || [[segue identifier] isEqualToString:@"showFlyerBack2"]) {
+	if ([[segue identifier] isEqualToString:@"showFlyerBack"]) {
 		[[segue destinationViewController] setDetailItem:self.detailItem];
 	}
 }
 
 
+/**
+ Scale flyer after pinch.
+ */
+
+- (IBAction)scaleFlyer:(UIPinchGestureRecognizer *)sender {
+	if ([sender state] == UIGestureRecognizerStateEnded) {
+		previousScale = 1.0;
+		
+		return;
+	}
+	
+	CGFloat newScale = 1.0 - (previousScale - [sender scale]);
+	
+	CGAffineTransform currentTransform = flyerImage.transform;
+	CGAffineTransform newTransform     = CGAffineTransformScale(currentTransform, newScale, newScale);
+	
+	flyerImage.transform = newTransform;
+	
+	previousScale = [sender scale];
+}
+
+
+/**
+ Move scaled flyer.
+ */
+- (IBAction)panFlyer:(UIPanGestureRecognizer *)sender {
+	CGPoint newCenter = [sender translationInView:self.view];
+	
+	if ([sender state] == UIGestureRecognizerStateBegan) {
+		beginX = flyerImage.center.x;
+		beginY = flyerImage.center.y;
+	}
+	
+	newCenter = CGPointMake(beginX + newCenter.x, beginY + newCenter.y);
+	
+	[flyerImage setCenter:newCenter];
+}
+
+
+/**
+ Reset scaled flyer.
+ */
+- (IBAction)resetFlyer:(UITapGestureRecognizer *)sender {
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDuration:0.3];
+	
+	navBar.hidden = !navBar.hidden;
+	
+	flyerImage.transform = CGAffineTransformIdentity;
+	[flyerImage setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
+	
+	[UIView commitAnimations];
+}
+
+
+/**
+ Flip flyer after swipe.
+ */
 - (IBAction)flipFlyer:(id)sender {
 	if (flipButton.enabled) {
 		[self performSegueWithIdentifier:@"showFlyerBack" sender:sender];

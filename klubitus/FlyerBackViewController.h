@@ -12,6 +12,11 @@
 	IBOutlet UIBarButtonItem *closeButton;
 	IBOutlet UIBarButtonItem  *flipButton;
 	IBOutlet UIImageView      *flyerImage;
+	IBOutlet UINavigationBar      *navBar;
+	
+	CGFloat previousScale;
+	CGFloat beginX;
+	CGFloat beginY;
 }
 
 @property (strong, nonatomic) id detailItem;
