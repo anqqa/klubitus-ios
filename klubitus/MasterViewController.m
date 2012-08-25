@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "DictionaryHelper.h"
 #import "SVPullToRefresh.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
@@ -198,30 +199,28 @@
 	NSDictionary *event = [events objectAtIndex:indexPath.row];
 
 	// Get needed info
-	NSString      *name = [event objectForKey:@"name"];
-	NSString     *venue = [event objectForKey:@"venue"];
-	NSString      *city = [event objectForKey:@"city"];
-	NSString     *flyer = [event objectForKey:@"flyer_front_icon"];
+	NSString      *name = [event stringForKey:@"name"];
+	NSString     *venue = [event stringForKey:@"venue"];
+	NSString      *city = [event stringForKey:@"city"];
+	NSString     *flyer = [event stringForKey:@"flyer_front_icon"];
 	NSString  *location = @"";
 	
 	// Name
 	nameLabel.text = name;
 	
 	// Location
-	bool hasVenue = !!venue && ![venue isEqual:[NSNull null]];
-	bool hasCity  = !!city && ![city isEqual:[NSNull null]];
-	if (hasVenue && hasCity) {
+	if (venue != nil && city != nil) {
 		location = [NSString stringWithFormat:@"%@, %@", venue, city];
-	} else if (hasVenue) {
+	} else if (venue != nil) {
 		location = venue;
-	} else if (hasCity) {
+	} else if (city != nil) {
 		location = city;
 	}
 	locationLabel.text = location;
 
 	// Flyer
 	flyerImageView.image = nil;
-	if (!!flyer && ![flyer isEqual:[NSNull null]]) {
+	if (flyer != nil) {
 		NSURL *flyerURL = [NSURL URLWithString:flyer];
 		if (flyerURL != nil) {
 			[flyerImageView setImageWithURL:flyerURL];

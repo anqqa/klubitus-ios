@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "DictionaryHelper.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface DetailViewController ()
@@ -36,14 +37,14 @@
 		NSDictionary *event = self.detailItem;
 		
 		// Name
-		NSString *name = [event objectForKey:@"name"];
+		NSString *name = [event stringForKey:@"name"];
 		nameLabel.lineBreakMode = UILineBreakModeWordWrap;
 		nameLabel.numberOfLines = 0;
 		nameLabel.text          = name;
 
 		// Flyer
-		NSString *flyer = [event objectForKey:@"flyer_front_thumb"];
-		if (!!flyer && ![flyer isEqual:[NSNull null]]) {
+		NSString *flyer = [event stringForKey:@"flyer_front_thumb"];
+		if (flyer != nil) {
 			NSURL *flyerURL = [NSURL URLWithString:flyer];
 			if (flyerURL != nil) {
 				[flyerImage setImageWithURL:flyerURL];
