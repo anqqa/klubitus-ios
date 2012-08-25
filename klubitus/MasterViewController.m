@@ -48,9 +48,13 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	self.tableView.backgroundColor = [UIColor colorWithWhite:0.12 alpha:1];
+	self.tableView.separatorColor  = [UIColor colorWithWhite:0.17 alpha:1];
+	self.tableView.rowHeight       = 60;
+	
 	// Init sections
 	self.sections    = [NSMutableDictionary dictionary];
-	self.sectionKeys = [NSMutableArray array];
+	self.sectionKeys = [NSArray array];
 	
 	// Create our section header date formatter
 	self.dayDateFormatter = [[NSDateFormatter alloc] init];
@@ -61,17 +65,13 @@
 	self.lastDay = self.firstDay = [self timeToDate:[NSDate date]];
 	
 	// Initialize infinite scroller and pull to refresh, with initial refresh in other direction..
-	self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+	self.tableView.pullToRefreshView.activityIndicatorViewStyle     = UIActivityIndicatorViewStyleWhite;
 	self.tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 	__block MasterViewController *blocksafeSelf = self;
 	[self.tableView addInfiniteScrollingWithActionHandler:^{
-		NSLog(@"Infinite scrolling!1");
-	
 		[blocksafeSelf fetchEventsWithOrder:@"asc"];
 	}];
 	[self.tableView addPullToRefreshWithActionHandler:^{
-		NSLog(@"Refresh");
-		
 		[blocksafeSelf fetchEventsWithOrder:@"desc"];
 	}];
 	[self.tableView.pullToRefreshView triggerRefresh];
@@ -123,15 +123,11 @@
 	NSURL    *APIURL      = [NSURL URLWithString:APIPath];
 	NSURLRequest *request = [NSURLRequest requestWithURL:APIURL];
 	
-	NSLog(@"Fetching events..");
-	NSLog(@"%@", self.firstDay);
-	NSLog(@"%@", self.lastDay);
-	NSLog(@"%@", APIPath);
-	
 	// Create load operation
 	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 
 		NSArray *events = [JSON objectForKey:@"events"];
+		int newSections = 0;
 		
 		// Order by day
 		for (NSDictionary *event in events) {
@@ -151,6 +147,7 @@
 				dayEvents = [NSMutableArray array];
 				
 				[self.sections setObject:dayEvents forKey:day];
+				newSections++;
 			}
 			
 			// Add the event to the day
@@ -160,19 +157,23 @@
 		
 		
 		// Create ordered day list
-		NSArray *unsortedDays = [self.sections allKeys];
-		self.sectionKeys = [unsortedDays sortedArrayUsingSelector:@selector(compare:)];
+		self.sectionKeys = [[self.sections allKeys] sortedArrayUsingSelector:@selector(compare:)];
 		
 		// Bump last day to the next day so we don't reload those, surviving daylight
 		self.lastDay = [self timeToDate:[self.lastDay dateByAddingTimeInterval:(60 * 60 * 25)]];
 	
+		// Refresh table and jump to new section if needed
+		[self.tableView reloadData];
+		if ([inputOrder isEqualToString:@"desc"]) {
+			NSIndexPath *tempPath = [NSIndexPath indexPathForRow:0 inSection:newSections];
+			[self.tableView scrollToRowAtIndexPath:tempPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+		}
+
 		[self.tableView.pullToRefreshView stopAnimating];
 		
-		[self.tableView reloadData];
 	} failure:nil];
 
 	[operation start];
-	NSLog(@".. done!");
 }
 
 
@@ -276,10 +277,12 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 	NSDate *day = [self.sectionKeys objectAtIndex:section];
 	
-	UILabel *sectionHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-	sectionHeader.backgroundColor = [UIColor colorWithWhite:0.25 alpha:0.5];
-	sectionHeader.font            = [UIFont italicSystemFontOfSize:14];
-	sectionHeader.textColor       = [UIColor whiteColor];
+	UILabel *sectionHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+	sectionHeader.backgroundColor = [UIColor colorWithWhite:0.05 alpha:0.75];
+	sectionHeader.shadowOffset    = CGSizeMake(1, 1);
+	sectionHeader.shadowColor     = [UIColor blackColor];
+	sectionHeader.font            = [UIFont boldSystemFontOfSize:14];
+	sectionHeader.textColor       = [UIColor colorWithWhite:0.74 alpha:1];
 	sectionHeader.text            = [self.dayDateFormatter stringFromDate:day];
 	
 	return sectionHeader;
