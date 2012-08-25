@@ -39,9 +39,11 @@
 		
 		// Flyer
 		NSString *flyer = [event stringForKey:@"flyer_front_thumb"];
+		flyerButton.enabled = NO;
 		if (flyer != nil) {
 			NSURL *flyerURL = [NSURL URLWithString:flyer];
 			if (flyerURL != nil) {
+				flyerButton.enabled = YES;
 				[flyerImage setImageWithURL:flyerURL];
 			}
 		}
@@ -122,13 +124,23 @@
 
 - (void)viewDidUnload
 {
+	flyerButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+
+/**
+ Prepare segue.
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([[segue identifier] isEqualToString:@"showFlyer"]) {
+		[[segue destinationViewController] setDetailItem:self.detailItem];
+	}
 }
 
 @end

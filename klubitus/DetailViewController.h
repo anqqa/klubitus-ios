@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController {
-	IBOutlet UIImageView  *flyerImage;
-	IBOutlet UILabel       *nameLabel;
-	IBOutlet UILabel   *locationLabel;
-	IBOutlet UILabel       *dateLabel;
-	IBOutlet UILabel       *timeLabel;
-	IBOutlet UILabel        *ageLabel;
-	IBOutlet UILabel      *musicLabel;
-	IBOutlet UILabel      *priceLabel;
-	IBOutlet UITextView       *djText;
+	IBOutlet UIImageView      *flyerImage;
+	IBOutlet UIButton        *flyerButton;
+	IBOutlet UILabel           *nameLabel;
+	IBOutlet UILabel       *locationLabel;
+	IBOutlet UILabel           *dateLabel;
+	IBOutlet UILabel           *timeLabel;
+	IBOutlet UILabel            *ageLabel;
+	IBOutlet UILabel          *musicLabel;
+	IBOutlet UILabel          *priceLabel;
+	IBOutlet UITextView           *djText;
 	
 	IBOutlet UIView    *separatorView;
 	IBOutlet UIView   *separator2View;
