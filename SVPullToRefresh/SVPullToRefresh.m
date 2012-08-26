@@ -323,7 +323,7 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
 - (void)setState:(SVPullToRefreshState)newState {
     
     if(pullToRefreshActionHandler && !self.showsPullToRefresh && !self.activityIndicatorView.isAnimating) {
-        titleLabel.text = NSLocalizedString(@"",);
+        titleLabel.text = @"";
         [self.activityIndicatorView stopAnimating];
         [self setScrollViewContentInset:self.originalScrollViewContentInset];
         [self rotateArrow:0 hide:YES];

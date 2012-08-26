@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881915E93FFE0007D673 /* FlyerViewController.m */; };
+		E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881D15E975BA0007D673 /* FlyerBackViewController.m */; };
 		E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6915E13E7B00EACAC6 /* UIKit.framework */; };
 		E9945B6C15E13E7B00EACAC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6B15E13E7B00EACAC6 /* Foundation.framework */; };
 		E9945B6E15E13E7B00EACAC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6D15E13E7B00EACAC6 /* CoreGraphics.framework */; };
@@ -34,9 +36,22 @@
 		E9945BC215E4165B00EACAC6 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BB615E4165B00EACAC6 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E9945BC315E4165B00EACAC6 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BB815E4165B00EACAC6 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E9945BC415E4165B00EACAC6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BBA15E4165B00EACAC6 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E9945BC715E53EF400EACAC6 /* klubitus.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BC515E53EF400EACAC6 /* klubitus.png */; };
+		E9945BC815E53EF400EACAC6 /* klubitus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BC615E53EF400EACAC6 /* klubitus@2x.png */; };
+		E9945BCD15E907E100EACAC6 /* DictionaryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BCC15E907E100EACAC6 /* DictionaryHelper.m */; };
+		E9D4862615EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861915EA6C1E001D84F4 /* InfoPlist.strings */; };
+		E9D4862715EA6C1E001D84F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861B15EA6C1E001D84F4 /* Localizable.strings */; };
+		E9D4862815EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861D15EA6C1E001D84F4 /* MainStoryboard.storyboard */; };
+		E9D4862915EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */; };
+		E9D4862A15EA6C1E001D84F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862215EA6C1E001D84F4 /* Localizable.strings */; };
+		E9D4862B15EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862415EA6C1E001D84F4 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E92F881815E93FFE0007D673 /* FlyerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerViewController.h; sourceTree = "<group>"; };
+		E92F881915E93FFE0007D673 /* FlyerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerViewController.m; sourceTree = "<group>"; };
+		E92F881C15E975BA0007D673 /* FlyerBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerBackViewController.h; sourceTree = "<group>"; };
+		E92F881D15E975BA0007D673 /* FlyerBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerBackViewController.m; sourceTree = "<group>"; };
 		E9945B6515E13E7B00EACAC6 /* klubitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klubitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9945B6915E13E7B00EACAC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E9945B6B15E13E7B00EACAC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +97,18 @@
 		E9945BB815E4165B00EACAC6 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		E9945BB915E4165B00EACAC6 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		E9945BBA15E4165B00EACAC6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		E9945BC515E53EF400EACAC6 /* klubitus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = klubitus.png; sourceTree = "<group>"; };
+		E9945BC615E53EF400EACAC6 /* klubitus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klubitus@2x.png"; sourceTree = "<group>"; };
+		E9945BCB15E907E100EACAC6 /* DictionaryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryHelper.h; sourceTree = "<group>"; };
+		E9945BCC15E907E100EACAC6 /* DictionaryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryHelper.m; sourceTree = "<group>"; };
+		E9D4861615EA656B001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = fi.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		E9D4861715EA656B001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E9D4861A15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		E9D4861C15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		E9D4861E15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		E9D4862115EA6C1E001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = InfoPlist.strings; sourceTree = "<group>"; };
+		E9D4862315EA6C1E001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = Localizable.strings; sourceTree = "<group>"; };
+		E9D4862515EA6C1E001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +129,6 @@
 		E9945B5A15E13E7B00EACAC6 = {
 			isa = PBXGroup;
 			children = (
-				E9945BA515E4165B00EACAC6 /* AFNetworking */,
-				E9945B9D15E3E57F00EACAC6 /* SVPullToRefresh */,
-				E9945B9B15E3E39E00EACAC6 /* QuartzCore.framework */,
 				E9945B9915E1424700EACAC6 /* Default@2x.png */,
 				E9945B9715E1424200EACAC6 /* Default.png */,
 				E9945B9115E1409D00EACAC6 /* appicon_114x114.png */,
@@ -126,6 +150,7 @@
 		E9945B6815E13E7B00EACAC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9945B9B15E3E39E00EACAC6 /* QuartzCore.framework */,
 				E9945B6915E13E7B00EACAC6 /* UIKit.framework */,
 				E9945B6B15E13E7B00EACAC6 /* Foundation.framework */,
 				E9945B6D15E13E7B00EACAC6 /* CoreGraphics.framework */,
@@ -136,6 +161,7 @@
 		E9945B6F15E13E7B00EACAC6 /* klubitus */ = {
 			isa = PBXGroup;
 			children = (
+				E9945BC915E907B200EACAC6 /* Helpers */,
 				E9945B8A15E1405200EACAC6 /* GFX */,
 				E9945B8915E13EE900EACAC6 /* GUI */,
 				E9945B7015E13E7B00EACAC6 /* Supporting Files */,
@@ -146,6 +172,8 @@
 		E9945B7015E13E7B00EACAC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9D4861815EA6C1E001D84F4 /* en.lproj */,
+				E9D4861F15EA6C1E001D84F4 /* fi.lproj */,
 				E9945B7115E13E7B00EACAC6 /* klubitus-Info.plist */,
 				E9945B7215E13E7B00EACAC6 /* InfoPlist.strings */,
 				E9945B7515E13E7C00EACAC6 /* main.m */,
@@ -164,6 +192,10 @@
 				E9945B7F15E13E7C00EACAC6 /* MasterViewController.m */,
 				E9945B8115E13E7C00EACAC6 /* DetailViewController.h */,
 				E9945B8215E13E7C00EACAC6 /* DetailViewController.m */,
+				E92F881815E93FFE0007D673 /* FlyerViewController.h */,
+				E92F881915E93FFE0007D673 /* FlyerViewController.m */,
+				E92F881C15E975BA0007D673 /* FlyerBackViewController.h */,
+				E92F881D15E975BA0007D673 /* FlyerBackViewController.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -171,6 +203,8 @@
 		E9945B8A15E1405200EACAC6 /* GFX */ = {
 			isa = PBXGroup;
 			children = (
+				E9945BC515E53EF400EACAC6 /* klubitus.png */,
+				E9945BC615E53EF400EACAC6 /* klubitus@2x.png */,
 				E9945BA115E4025800EACAC6 /* logo.png */,
 				E9945BA215E4025800EACAC6 /* logo@2x.png */,
 			);
@@ -183,7 +217,8 @@
 				E9945B9E15E3E57F00EACAC6 /* SVPullToRefresh.h */,
 				E9945B9F15E3E57F00EACAC6 /* SVPullToRefresh.m */,
 			);
-			path = SVPullToRefresh;
+			name = SVPullToRefresh;
+			path = ../SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		E9945BA515E4165B00EACAC6 /* AFNetworking */ = {
@@ -211,7 +246,47 @@
 				E9945BB915E4165B00EACAC6 /* UIImageView+AFNetworking.h */,
 				E9945BBA15E4165B00EACAC6 /* UIImageView+AFNetworking.m */,
 			);
-			path = AFNetworking;
+			name = AFNetworking;
+			path = ../AFNetworking;
+			sourceTree = "<group>";
+		};
+		E9945BC915E907B200EACAC6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E9945BCA15E907E100EACAC6 /* IOSBoilerplate */,
+				E9945B9D15E3E57F00EACAC6 /* SVPullToRefresh */,
+				E9945BA515E4165B00EACAC6 /* AFNetworking */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E9945BCA15E907E100EACAC6 /* IOSBoilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				E9945BCB15E907E100EACAC6 /* DictionaryHelper.h */,
+				E9945BCC15E907E100EACAC6 /* DictionaryHelper.m */,
+			);
+			path = IOSBoilerplate;
+			sourceTree = "<group>";
+		};
+		E9D4861815EA6C1E001D84F4 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				E9D4861915EA6C1E001D84F4 /* InfoPlist.strings */,
+				E9D4861B15EA6C1E001D84F4 /* Localizable.strings */,
+				E9D4861D15EA6C1E001D84F4 /* MainStoryboard.storyboard */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		E9D4861F15EA6C1E001D84F4 /* fi.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */,
+				E9D4862215EA6C1E001D84F4 /* Localizable.strings */,
+				E9D4862415EA6C1E001D84F4 /* MainStoryboard.storyboard */,
+			);
+			path = fi.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +324,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fi,
 			);
 			mainGroup = E9945B5A15E13E7B00EACAC6;
 			productRefGroup = E9945B6615E13E7B00EACAC6 /* Products */;
@@ -273,6 +349,14 @@
 				E9945B9A15E1424700EACAC6 /* Default@2x.png in Resources */,
 				E9945BA315E4025800EACAC6 /* logo.png in Resources */,
 				E9945BA415E4025800EACAC6 /* logo@2x.png in Resources */,
+				E9945BC715E53EF400EACAC6 /* klubitus.png in Resources */,
+				E9945BC815E53EF400EACAC6 /* klubitus@2x.png in Resources */,
+				E9D4862615EA6C1E001D84F4 /* InfoPlist.strings in Resources */,
+				E9D4862715EA6C1E001D84F4 /* Localizable.strings in Resources */,
+				E9D4862815EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */,
+				E9D4862915EA6C1E001D84F4 /* InfoPlist.strings in Resources */,
+				E9D4862A15EA6C1E001D84F4 /* Localizable.strings in Resources */,
+				E9D4862B15EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +382,9 @@
 				E9945BC215E4165B00EACAC6 /* AFURLConnectionOperation.m in Sources */,
 				E9945BC315E4165B00EACAC6 /* AFXMLRequestOperation.m in Sources */,
 				E9945BC415E4165B00EACAC6 /* UIImageView+AFNetworking.m in Sources */,
+				E9945BCD15E907E100EACAC6 /* DictionaryHelper.m in Sources */,
+				E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */,
+				E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +395,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E9945B7315E13E7B00EACAC6 /* en */,
+				E9D4861715EA656B001D84F4 /* fi */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -316,6 +404,55 @@
 			isa = PBXVariantGroup;
 			children = (
 				E9945B7C15E13E7C00EACAC6 /* en */,
+				E9D4861615EA656B001D84F4 /* fi */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		E9D4861915EA6C1E001D84F4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D4861A15EA6C1E001D84F4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E9D4861B15EA6C1E001D84F4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D4861C15EA6C1E001D84F4 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E9D4861D15EA6C1E001D84F4 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D4861E15EA6C1E001D84F4 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D4862115EA6C1E001D84F4 /* fi */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E9D4862215EA6C1E001D84F4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D4862315EA6C1E001D84F4 /* fi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E9D4862415EA6C1E001D84F4 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D4862515EA6C1E001D84F4 /* fi */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -378,7 +515,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -391,7 +528,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -417,6 +554,7 @@
 				E9945B8815E13E7C00EACAC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

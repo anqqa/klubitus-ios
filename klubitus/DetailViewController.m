@@ -68,9 +68,10 @@
 		locationLabel.text = location;
 
 		// Date
+		NSString *formatString            = [NSDateFormatter dateFormatFromTemplate:@"EdMMMy" options:0 locale:[NSLocale currentLocale]];
 		NSDateFormatter *dayDateFormatter = [[NSDateFormatter alloc] init];
-		[dayDateFormatter setDateStyle:NSDateFormatterFullStyle];
-		[dayDateFormatter setTimeStyle:NSDateFormatterNoStyle];
+		[dayDateFormatter setDateFormat:formatString];
+		//[dayDateFormatter setTimeStyle:NSDateFormatterNoStyle];
 		NSDate *fromDate = [NSDate dateWithTimeIntervalSince1970:[[event stringForKey:@"stamp_begin"] intValue]];
 		NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
 		[timeDateFormatter setDateStyle:NSDateFormatterNoStyle];
@@ -84,7 +85,7 @@
 		if (price == nil || [price floatValue] < 0) {
 			priceLabel.text = @"";
 		} else if ([price floatValue] == 0) {
-			priceLabel.text = @"Free entry";
+			priceLabel.text = NSLocalizedString(@"Free entry",);
 		} else {
 			priceLabel.text = [NSString stringWithFormat:@"%g€", [price floatValue]];
 		}
@@ -94,9 +95,9 @@
 		if (age == nil || [age intValue] < 0) {
 			ageLabel.text = @"";
 		} else if ([age intValue] == 0) {
-			ageLabel.text = @"No age limit";
+			ageLabel.text = NSLocalizedString(@"No age limit",);
 		} else {
-			ageLabel.text = [NSString stringWithFormat:@"Age limit %d", [age intValue]];
+			ageLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Age limit %d",), [age intValue]];
 		}
 		
 		// Music
