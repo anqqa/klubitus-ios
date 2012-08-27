@@ -238,6 +238,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Veg-1C-WKD" appends="YES" id="z0S-wK-H3v"/>
                                     <outletCollection property="gestureRecognizers" destination="gyf-xA-gmV" appends="YES" id="y4T-B2-3fU"/>
                                     <outletCollection property="gestureRecognizers" destination="H6u-JF-Nm7" appends="YES" id="JqX-oc-WjW"/>
+                                    <outletCollection property="gestureRecognizers" destination="G88-3L-3Kx" appends="YES" id="UZL-0g-Vfq"/>
                                 </connections>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="Amm-Pm-rS3">
@@ -261,37 +262,36 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="nl8-iS-Ta9" appends="YES" id="UAX-MG-cPj"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="GWe-3A-MSH" id="cZL-9H-Ew0"/>
+                        <outlet property="doubleTap" destination="gyf-xA-gmV" id="XOh-Le-hyk"/>
                         <outlet property="flipButton" destination="oWD-Nj-3Bp" id="8Dc-c6-PoU"/>
                         <outlet property="flyerImage" destination="gLB-i2-hlI" id="qWs-L7-tu8"/>
                         <outlet property="navBar" destination="Amm-Pm-rS3" id="NoC-M8-Tfz"/>
+                        <outlet property="singleTap" destination="G88-3L-3Kx" id="2YZ-1j-Cv4"/>
                     </connections>
                 </viewController>
-                <swipeGestureRecognizer direction="left" id="nl8-iS-Ta9">
-                    <connections>
-                        <action selector="flipFlyer:" destination="41u-aW-ZQG" id="3Mz-d7-blP"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <pinchGestureRecognizer id="Veg-1C-WKD">
                     <connections>
                         <action selector="scaleFlyer:" destination="41u-aW-ZQG" id="ddU-4d-yIE"/>
                     </connections>
                 </pinchGestureRecognizer>
-                <tapGestureRecognizer id="gyf-xA-gmV">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="gyf-xA-gmV">
                     <connections>
                         <action selector="resetFlyer:" destination="41u-aW-ZQG" id="1V7-Iq-epB"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="2" id="H6u-JF-Nm7">
+                <panGestureRecognizer id="H6u-JF-Nm7">
                     <connections>
                         <action selector="panFlyer:" destination="41u-aW-ZQG" id="MUv-2L-QyT"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="G88-3L-3Kx">
+                    <connections>
+                        <action selector="toggleNavbar:" destination="41u-aW-ZQG" id="3pM-MU-qrz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1324" y="64"/>
         </scene>
@@ -312,6 +312,7 @@
                                     <outletCollection property="gestureRecognizers" destination="vbC-hc-b4P" appends="YES" id="Nuf-zJ-vq0"/>
                                     <outletCollection property="gestureRecognizers" destination="hKV-Oj-VgX" appends="YES" id="nTe-wM-Lcb"/>
                                     <outletCollection property="gestureRecognizers" destination="tT1-T9-sq3" appends="YES" id="K57-eg-v7d"/>
+                                    <outletCollection property="gestureRecognizers" destination="2nv-sc-oyX" appends="YES" id="BP5-MA-MrE"/>
                                 </connections>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="ZTD-TK-bZ9">
@@ -330,35 +331,34 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="WQl-BL-3gl" appends="YES" id="wNh-jb-hfo"/>
-                        </connections>
                     </view>
                     <connections>
+                        <outlet property="doubleTap" destination="hKV-Oj-VgX" id="jyV-05-2cX"/>
                         <outlet property="flyerImage" destination="6vE-KS-r8h" id="l2z-T6-7rh"/>
                         <outlet property="navBar" destination="ZTD-TK-bZ9" id="RRq-Es-Ieh"/>
+                        <outlet property="singleTap" destination="2nv-sc-oyX" id="ZCj-uN-mFU"/>
                     </connections>
                 </viewController>
-                <swipeGestureRecognizer direction="right" id="WQl-BL-3gl">
-                    <connections>
-                        <action selector="closeFlyer:" destination="a1V-LO-Jte" id="6BI-7w-75R"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <pinchGestureRecognizer id="vbC-hc-b4P">
                     <connections>
                         <action selector="scaleFlyer:" destination="a1V-LO-Jte" id="oxz-xB-6xS"/>
                     </connections>
                 </pinchGestureRecognizer>
-                <tapGestureRecognizer id="hKV-Oj-VgX">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="hKV-Oj-VgX">
                     <connections>
                         <action selector="resetFlyer:" destination="a1V-LO-Jte" id="FRg-uh-hoX"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="2" id="tT1-T9-sq3">
+                <panGestureRecognizer id="tT1-T9-sq3">
                     <connections>
                         <action selector="panFlyer:" destination="a1V-LO-Jte" id="KdM-41-icE"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="2nv-sc-oyX">
+                    <connections>
+                        <action selector="toggleNavBar:" destination="a1V-LO-Jte" id="xS8-G0-eZT"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1746" y="64"/>
         </scene>
@@ -391,10 +391,13 @@
                 <relationship kind="action" name="panFlyer:" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="action" name="resetFlyer:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="action" name="scaleFlyer:" candidateClass="UIPinchGestureRecognizer"/>
+                <relationship kind="action" name="toggleNavBar:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="doubleTap" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="flipButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="flyerImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="singleTap" candidateClass="UITapGestureRecognizer"/>
             </relationships>
         </class>
         <class className="FlyerViewController" superclassName="UIViewController">
@@ -402,13 +405,15 @@
             <relationships>
                 <relationship kind="action" name="closeFlyer:"/>
                 <relationship kind="action" name="flipFlyer:"/>
-                <relationship kind="action" name="panFlyer:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="resetFlyer:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="action" name="scaleFlyer:" candidateClass="UIPinchGestureRecognizer"/>
+                <relationship kind="action" name="toggleNavbar:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="doubleTap" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="flipButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="flyerImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="flyerPan" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="singleTap" candidateClass="UITapGestureRecognizer"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">

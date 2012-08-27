@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlyerBackViewController : UIViewController {
-	IBOutlet UIBarButtonItem *closeButton;
-	IBOutlet UIBarButtonItem  *flipButton;
-	IBOutlet UIImageView      *flyerImage;
-	IBOutlet UINavigationBar      *navBar;
+@interface FlyerBackViewController : UIViewController <UIGestureRecognizerDelegate> {
+	IBOutlet UIBarButtonItem      *closeButton;
+	IBOutlet UIBarButtonItem       *flipButton;
+	IBOutlet UIImageView           *flyerImage;
+	IBOutlet UINavigationBar           *navBar;
+	IBOutlet UITapGestureRecognizer *doubleTap;
+	IBOutlet UITapGestureRecognizer *singleTap;
 	
 	CGFloat previousScale;
 	CGFloat beginX;

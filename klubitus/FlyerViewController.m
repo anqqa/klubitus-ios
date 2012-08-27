@@ -73,15 +73,18 @@
  */
 - (void)viewDidLoad {
 	[super viewDidLoad];
+
+	[singleTap requireGestureRecognizerToFail:doubleTap];
 	
 	[self configureView];
 	// Do any additional setup after loading the view.
 }
 	
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+- (void)viewDidUnload {
+	doubleTap = nil;
+	singleTap = nil;
+
+	[super viewDidUnload];
 }
 
 
@@ -99,11 +102,19 @@
 	}
 }
 
+#pragma mark - Gestures
+
+/**
+ Allow multiple gestures.
+ */
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+	return YES;
+}
+
 
 /**
  Scale flyer after pinch.
  */
-
 - (IBAction)scaleFlyer:(UIPinchGestureRecognizer *)sender {
 	if ([sender state] == UIGestureRecognizerStateEnded) {
 		previousScale = 1.0;
@@ -146,12 +157,18 @@
 	[UIView beginAnimations:nil context:nil];
 	[UIView setAnimationDuration:0.3];
 	
-	navBar.hidden = !navBar.hidden;
-	
 	flyerImage.transform = CGAffineTransformIdentity;
 	[flyerImage setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
 	
 	[UIView commitAnimations];
+}
+
+
+/**
+ Toggle navigation bar.
+ */
+- (IBAction)toggleNavbar:(UITapGestureRecognizer *)sender {
+	navBar.hidden = !navBar.hidden;
 }
 
 

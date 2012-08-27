@@ -55,6 +55,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+
+	[singleTap requireGestureRecognizerToFail:doubleTap];
 	
 	// Do any additional setup after loading the view.
 	[self configureView];
@@ -71,6 +73,14 @@
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark - Gestures
+
+/**
+ Allow multiple gestures.
+ */
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+	return YES;
+}
 
 
 /**
@@ -118,12 +128,17 @@
 	[UIView beginAnimations:nil context:nil];
 	[UIView setAnimationDuration:0.3];
 	
-	navBar.hidden = !navBar.hidden;
-	
 	flyerImage.transform = CGAffineTransformIdentity;
 	[flyerImage setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
 	
 	[UIView commitAnimations];
+}
+
+/**
+ Toggle navigation bar.
+ */
+- (IBAction)toggleNavBar:(UITapGestureRecognizer *)sender {
+	navBar.hidden = !navBar.hidden;
 }
 
 

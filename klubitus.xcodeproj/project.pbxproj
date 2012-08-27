@@ -41,10 +41,10 @@
 		E9945BCD15E907E100EACAC6 /* DictionaryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BCC15E907E100EACAC6 /* DictionaryHelper.m */; };
 		E9D4862615EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861915EA6C1E001D84F4 /* InfoPlist.strings */; };
 		E9D4862715EA6C1E001D84F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861B15EA6C1E001D84F4 /* Localizable.strings */; };
-		E9D4862815EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861D15EA6C1E001D84F4 /* MainStoryboard.storyboard */; };
 		E9D4862915EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */; };
 		E9D4862A15EA6C1E001D84F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862215EA6C1E001D84F4 /* Localizable.strings */; };
-		E9D4862B15EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862415EA6C1E001D84F4 /* MainStoryboard.storyboard */; };
+		E9D4862E15EBCF2C001D84F4 /* MainStoryboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862C15EBCF2C001D84F4 /* MainStoryboard.strings */; };
+		E9D4863115EBCF57001D84F4 /* MainStoryboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862F15EBCF57001D84F4 /* MainStoryboard.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,10 +105,10 @@
 		E9D4861715EA656B001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9D4861A15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		E9D4861C15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		E9D4861E15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E9D4862115EA6C1E001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = InfoPlist.strings; sourceTree = "<group>"; };
 		E9D4862315EA6C1E001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = Localizable.strings; sourceTree = "<group>"; };
-		E9D4862515EA6C1E001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		E9D4862D15EBCF2C001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = MainStoryboard.strings; sourceTree = "<group>"; };
+		E9D4863015EBCF57001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = MainStoryboard.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,9 +272,9 @@
 		E9D4861815EA6C1E001D84F4 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				E9D4862C15EBCF2C001D84F4 /* MainStoryboard.strings */,
 				E9D4861915EA6C1E001D84F4 /* InfoPlist.strings */,
 				E9D4861B15EA6C1E001D84F4 /* Localizable.strings */,
-				E9D4861D15EA6C1E001D84F4 /* MainStoryboard.storyboard */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -282,9 +282,9 @@
 		E9D4861F15EA6C1E001D84F4 /* fi.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				E9D4862F15EBCF57001D84F4 /* MainStoryboard.strings */,
 				E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */,
 				E9D4862215EA6C1E001D84F4 /* Localizable.strings */,
-				E9D4862415EA6C1E001D84F4 /* MainStoryboard.storyboard */,
 			);
 			path = fi.lproj;
 			sourceTree = "<group>";
@@ -353,10 +353,10 @@
 				E9945BC815E53EF400EACAC6 /* klubitus@2x.png in Resources */,
 				E9D4862615EA6C1E001D84F4 /* InfoPlist.strings in Resources */,
 				E9D4862715EA6C1E001D84F4 /* Localizable.strings in Resources */,
-				E9D4862815EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */,
 				E9D4862915EA6C1E001D84F4 /* InfoPlist.strings in Resources */,
 				E9D4862A15EA6C1E001D84F4 /* Localizable.strings in Resources */,
-				E9D4862B15EA6C1E001D84F4 /* MainStoryboard.storyboard in Resources */,
+				E9D4862E15EBCF2C001D84F4 /* MainStoryboard.strings in Resources */,
+				E9D4863115EBCF57001D84F4 /* MainStoryboard.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,14 +425,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		E9D4861D15EA6C1E001D84F4 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E9D4861E15EA6C1E001D84F4 /* en */,
-			);
-			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
 		E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -449,12 +441,20 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		E9D4862415EA6C1E001D84F4 /* MainStoryboard.storyboard */ = {
+		E9D4862C15EBCF2C001D84F4 /* MainStoryboard.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E9D4862515EA6C1E001D84F4 /* fi */,
+				E9D4862D15EBCF2C001D84F4 /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = MainStoryboard.strings;
+			sourceTree = "<group>";
+		};
+		E9D4862F15EBCF57001D84F4 /* MainStoryboard.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D4863015EBCF57001D84F4 /* fi */,
+			);
+			name = MainStoryboard.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -468,6 +468,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Antti Qvickstrom (VVL4V2H5ZX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -483,6 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -495,6 +497,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Antti Qvickstrom (VVL4V2H5ZX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -504,6 +507,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
