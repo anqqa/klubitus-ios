@@ -121,9 +121,9 @@
 		
 		return;
 	}
-	
+
 	CGFloat newScale = 1.0 - (previousScale - [sender scale]);
-	
+
 	CGAffineTransform currentTransform = flyerImage.transform;
 	CGAffineTransform newTransform     = CGAffineTransformScale(currentTransform, newScale, newScale);
 	
@@ -143,9 +143,9 @@
 		beginX = flyerImage.center.x;
 		beginY = flyerImage.center.y;
 	}
-	
+
 	newCenter = CGPointMake(beginX + newCenter.x, beginY + newCenter.y);
-	
+
 	[flyerImage setCenter:newCenter];
 }
 

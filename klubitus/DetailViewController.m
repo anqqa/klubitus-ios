@@ -104,8 +104,29 @@
 		musicLabel.text = [event stringForKey:@"music"];
 		
 		// DJ
-		djText.text = [NSString stringWithFormat:@"%@\n\n%@", [event stringForKey:@"dj"], [event stringForKey:@"info"]];
-		
+		NSString *dj   = [event stringForKey:@"dj"];
+		NSString *info = [event stringForKey:@"info"];
+		NSString *text = @"";
+		if (dj != nil && info != nil) {
+			text = [NSString stringWithFormat:@"%@\n\n%@", dj, info];
+		} else if (dj != nil) {
+			text = dj;
+		} else if (info != nil) {
+			text = info;
+		}
+
+		// Remove BBCode
+		NSScanner *tagScanner;
+		NSString *tag = nil;
+		tagScanner = [NSScanner scannerWithString:text];
+		while ([tagScanner isAtEnd] == NO) {
+			[tagScanner scanUpToString:@"[" intoString:NULL];
+			[tagScanner scanUpToString:@"]" intoString:&tag];
+			text = [text stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@]", tag] withString:@""];
+		}
+
+		djText.text = text;
+
 	}
 }
 

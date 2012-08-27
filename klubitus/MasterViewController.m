@@ -191,7 +191,8 @@
 	}
 	UILabel          *nameLabel = (UILabel *)[cell viewWithTag:100];
 	UILabel      *locationLabel = (UILabel *)[cell viewWithTag:101];
-	UIImageView *flyerImageView = (UIImageView *)[cell viewWithTag:102];
+	UILabel         *musicLabel = (UILabel *)[cell viewWithTag:102];
+	UIImageView *flyerImageView = (UIImageView *)[cell viewWithTag:103];
 	
 	// Get section
 	NSDate         *day = [self.sectionKeys objectAtIndex:indexPath.section];
@@ -202,6 +203,7 @@
 	NSString      *name = [event stringForKey:@"name"];
 	NSString     *venue = [event stringForKey:@"venue"];
 	NSString      *city = [event stringForKey:@"city"];
+	NSString     *music = [event stringForKey:@"music"];
 	NSString     *flyer = [event stringForKey:@"flyer_front_icon"];
 	NSString  *location = @"";
 	
@@ -217,6 +219,9 @@
 		location = city;
 	}
 	locationLabel.text = location;
+
+	// Music
+	musicLabel.text = music;
 
 	// Flyer
 	flyerImageView.image = nil;
