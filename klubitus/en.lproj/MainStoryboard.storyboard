@@ -289,7 +289,7 @@
                         <action selector="resetFlyer:" destination="41u-aW-ZQG" id="1V7-Iq-epB"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer id="H6u-JF-Nm7">
+                <panGestureRecognizer maximumNumberOfTouches="1" id="H6u-JF-Nm7">
                     <connections>
                         <action selector="panFlyer:" destination="41u-aW-ZQG" id="MUv-2L-QyT"/>
                     </connections>
@@ -356,7 +356,7 @@
                         <action selector="resetFlyer:" destination="a1V-LO-Jte" id="FRg-uh-hoX"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer id="tT1-T9-sq3">
+                <panGestureRecognizer maximumNumberOfTouches="1" id="tT1-T9-sq3">
                     <connections>
                         <action selector="panFlyer:" destination="a1V-LO-Jte" id="KdM-41-icE"/>
                     </connections>
@@ -373,6 +373,57 @@
     <resources>
         <image name="klubitus.png" width="96" height="25"/>
     </resources>
+    <classes>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="djText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="flyerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="flyerImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="musicLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="separator2View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FlyerBackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlyerBackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeFlyer:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="doubleTap" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="flipButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="flyerImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="singleTap" candidateClass="UITapGestureRecognizer"/>
+            </relationships>
+        </class>
+        <class className="FlyerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlyerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeFlyer:"/>
+                <relationship kind="action" name="flipFlyer:"/>
+                <relationship kind="action" name="panFlyer:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="resetFlyer:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="scaleFlyer:" candidateClass="UIPinchGestureRecognizer"/>
+                <relationship kind="action" name="toggleNavbar:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="doubleTap" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="flipButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="flyerImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="singleTap" candidateClass="UITapGestureRecognizer"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
