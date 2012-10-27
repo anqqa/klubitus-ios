@@ -9,6 +9,7 @@
 #import "FlyerBackViewController.h"
 #import "DictionaryHelper.h"
 #import "UIImageView+AFNetworking.h"
+#import "GAI.h"
 
 @interface FlyerBackViewController ()
 - (void)configureView;
@@ -60,6 +61,8 @@
 	
 	// Do any additional setup after loading the view.
 	[self configureView];
+	
+	[[[GAI sharedInstance] defaultTracker] trackView:@"Flyer back"];
 }
 
 - (void)viewDidUnload

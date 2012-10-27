@@ -10,6 +10,7 @@
 #import "DictionaryHelper.h"
 #import "SVModalWebViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "GAI.h"
 
 @interface DetailViewController ()
 - (void)configureView;
@@ -144,6 +145,8 @@
 		
 	// Do any additional setup after loading the view, typically from a nib.
 	[self configureView];
+	
+	[[[GAI sharedInstance] defaultTracker] trackView:@"Event details"];
 }
 
 - (void)viewDidUnload
@@ -180,6 +183,8 @@
 	webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsCopyLink;
 	
 	[self presentModalViewController:webViewController animated:YES];
+	
+	[[[GAI sharedInstance] defaultTracker] trackView:@"Browser"];
 }
 
 @end

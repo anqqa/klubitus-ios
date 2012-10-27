@@ -11,6 +11,7 @@
 		E9144D4D163C4D8A00192BD4 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9144D49163C4D8A00192BD4 /* SVModalWebViewController.m */; };
 		E9144D4E163C4D8A00192BD4 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9144D4A163C4D8A00192BD4 /* SVWebViewController.bundle */; };
 		E9144D4F163C4D8A00192BD4 /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9144D4C163C4D8A00192BD4 /* SVWebViewController.m */; };
+		E9144D58163C4F5200192BD4 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9144D56163C4F5200192BD4 /* libGoogleAnalytics.a */; };
 		E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881915E93FFE0007D673 /* FlyerViewController.m */; };
 		E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881D15E975BA0007D673 /* FlyerBackViewController.m */; };
 		E9881407163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E9881404163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m */; };
@@ -46,6 +47,7 @@
 		E9945BC415E4165B00EACAC6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BBA15E4165B00EACAC6 /* UIImageView+AFNetworking.m */; };
 		E9945BC715E53EF400EACAC6 /* klubitus.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BC515E53EF400EACAC6 /* klubitus.png */; };
 		E9945BC815E53EF400EACAC6 /* klubitus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BC615E53EF400EACAC6 /* klubitus@2x.png */; };
+		E9A5AA88163C526C002562CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A5AA87163C526C002562CD /* CoreData.framework */; };
 		E9D4862615EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861915EA6C1E001D84F4 /* InfoPlist.strings */; };
 		E9D4862715EA6C1E001D84F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861B15EA6C1E001D84F4 /* Localizable.strings */; };
 		E9D4862915EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */; };
@@ -61,6 +63,12 @@
 		E9144D4A163C4D8A00192BD4 /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
 		E9144D4B163C4D8A00192BD4 /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
 		E9144D4C163C4D8A00192BD4 /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
+		E9144D51163C4F5200192BD4 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		E9144D52163C4F5200192BD4 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		E9144D53163C4F5200192BD4 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		E9144D54163C4F5200192BD4 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		E9144D55163C4F5200192BD4 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		E9144D56163C4F5200192BD4 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		E92F881815E93FFE0007D673 /* FlyerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerViewController.h; sourceTree = "<group>"; };
 		E92F881915E93FFE0007D673 /* FlyerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerViewController.m; sourceTree = "<group>"; };
 		E92F881C15E975BA0007D673 /* FlyerBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerBackViewController.h; sourceTree = "<group>"; };
@@ -118,6 +126,7 @@
 		E9945BBA15E4165B00EACAC6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		E9945BC515E53EF400EACAC6 /* klubitus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = klubitus.png; sourceTree = "<group>"; };
 		E9945BC615E53EF400EACAC6 /* klubitus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klubitus@2x.png"; sourceTree = "<group>"; };
+		E9A5AA87163C526C002562CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E9D4861615EA656B001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = fi.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E9D4861715EA656B001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9D4861A15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -133,12 +142,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9A5AA88163C526C002562CD /* CoreData.framework in Frameworks */,
 				E9144D46163C454600192BD4 /* MessageUI.framework in Frameworks */,
 				E993F1F3163C078A000D453B /* SystemConfiguration.framework in Frameworks */,
 				E9945B9C15E3E39E00EACAC6 /* QuartzCore.framework in Frameworks */,
 				E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */,
 				E9945B6C15E13E7B00EACAC6 /* Foundation.framework in Frameworks */,
 				E9945B6E15E13E7B00EACAC6 /* CoreGraphics.framework in Frameworks */,
+				E9144D58163C4F5200192BD4 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +166,19 @@
 				E9144D4C163C4D8A00192BD4 /* SVWebViewController.m */,
 			);
 			path = SVWebViewController;
+			sourceTree = SOURCE_ROOT;
+		};
+		E9144D50163C4F5200192BD4 /* GoogleAnalyticsiOS */ = {
+			isa = PBXGroup;
+			children = (
+				E9144D51163C4F5200192BD4 /* GAI.h */,
+				E9144D52163C4F5200192BD4 /* GAITrackedViewController.h */,
+				E9144D53163C4F5200192BD4 /* GAITracker.h */,
+				E9144D54163C4F5200192BD4 /* GAITransaction.h */,
+				E9144D55163C4F5200192BD4 /* GAITransactionItem.h */,
+				E9144D56163C4F5200192BD4 /* libGoogleAnalytics.a */,
+			);
+			path = GoogleAnalyticsiOS;
 			sourceTree = SOURCE_ROOT;
 		};
 		E9881401163C22CD004F3529 /* SVPullToRefresh */ = {
@@ -181,6 +205,7 @@
 		E9945B5A15E13E7B00EACAC6 = {
 			isa = PBXGroup;
 			children = (
+				E9A5AA87163C526C002562CD /* CoreData.framework */,
 				E993F1F4163C09D8000D453B /* Default-568h@2x.png */,
 				E9945B9915E1424700EACAC6 /* Default@2x.png */,
 				E9945B9715E1424200EACAC6 /* Default.png */,
@@ -297,6 +322,7 @@
 		E9945BC915E907B200EACAC6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E9144D50163C4F5200192BD4 /* GoogleAnalyticsiOS */,
 				E9144D47163C4D8A00192BD4 /* SVWebViewController */,
 				E9945BA515E4165B00EACAC6 /* AFNetworking */,
 				E988140A163C237A004F3529 /* IOSBoilerplate */,
@@ -562,6 +588,10 @@
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAnalyticsiOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -577,6 +607,10 @@
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GoogleAnalyticsiOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 1;

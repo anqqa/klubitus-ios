@@ -12,6 +12,7 @@
 #import "SVPullToRefresh.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "GAI.h"
 
 @interface MasterViewController ()
 	
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) NSDateFormatter *dayDateFormatter;
 @property (strong, nonatomic) NSDate *firstDay;
 @property (strong, nonatomic) NSDate *lastDay;
+@property NSInteger *pageUp;
+@property NSInteger *pageDown;
 
 - (NSDate *)timeToDate:(NSDate *)inputDate;
 
@@ -48,6 +51,10 @@
  */
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
+	// Analytics
+	self.pageDown = self.pageUp = 0;
+	[[[GAI sharedInstance] defaultTracker] trackView:@"Event list"];
 	
 	// Background image
 //	self.tableView.backgroundColor = [UIColor colorWithWhite:0.12 alpha:1];
@@ -164,11 +171,16 @@
 			[self.tableView.pullToRefreshView stopAnimating];
 			[self.tableView reloadData];
 			[self.tableView scrollToRowAtIndexPath:tempPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+			
+			self.pageUp += 1;
+			[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"uiAction" withAction:@"scroll" withLabel:@"up" withValue:[NSNumber numberWithInteger:(NSInteger)self.pageUp]];
         } else {
 			[self.tableView reloadData];
 			[self.tableView.infiniteScrollingView stopAnimating];
+			
+			self.pageDown += 1;
+			[[[GAI sharedInstance] defaultTracker] trackEventWithCategory:@"uiAction" withAction:@"scroll" withLabel:@"down" withValue:[NSNumber numberWithInteger:(NSInteger)self.pageDown]];
         }
-
 		
 	} failure:nil];
 
