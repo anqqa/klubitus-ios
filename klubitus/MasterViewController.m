@@ -66,8 +66,6 @@
 	self.lastDay = self.firstDay = [self timeToDate:[NSDate date]];
 	
 	// Initialize infinite scroller and pull to refresh, with initial refresh in other direction..
-	self.tableView.pullToRefreshView.activityIndicatorViewStyle     = UIActivityIndicatorViewStyleWhite;
-	self.tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 	__block MasterViewController *blocksafeSelf = self;
 	[self.tableView addInfiniteScrollingWithActionHandler:^{
 		[blocksafeSelf fetchEventsWithOrder:@"asc"];
@@ -75,9 +73,9 @@
 	[self.tableView addPullToRefreshWithActionHandler:^{
 		[blocksafeSelf fetchEventsWithOrder:@"desc"];
 	}];
-	[self.tableView.pullToRefreshView triggerRefresh];
-
-	//	[self fetchEventsWithOrder:@"asc"];
+    self.tableView.pullToRefreshView.activityIndicatorViewStyle     = UIActivityIndicatorViewStyleWhite;
+	self.tableView.infiniteScrollingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+	[self.tableView triggerInfiniteScrolling];
 }
 
 
@@ -111,12 +109,6 @@
  Load events with JSON.
  */
 - (void)fetchEventsWithOrder:(NSString *)inputOrder {
-	
-	// Kludge to always order first request descending because we are triggering refresh onViewLoad
-	if ([self.lastDay isEqualToDate:self.firstDay]) {
-		inputOrder = @"asc";
-	}
-	
 	NSDate *fromDate = ([inputOrder isEqualToString:@"asc"]) ? self.lastDay : self.firstDay;
 	int from = [fromDate timeIntervalSince1970];
 	NSString *APIBasePath = @"http://api.klubitus.org/v1/events/browse?field=all&limit=1w&order=%@&from=%d";
@@ -164,13 +156,18 @@
 		self.lastDay = [self timeToDate:[self.lastDay dateByAddingTimeInterval:(60 * 60 * 25)]];
 	
 		// Refresh table and jump to new section if needed
-		[self.tableView reloadData];
+		
 		if ([inputOrder isEqualToString:@"desc"]) {
-			NSIndexPath *tempPath = [NSIndexPath indexPathForRow:0 inSection:newSections];
-			[self.tableView scrollToRowAtIndexPath:tempPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-		}
 
-		[self.tableView.pullToRefreshView stopAnimating];
+			NSIndexPath *tempPath = [NSIndexPath indexPathForRow:0 inSection:newSections];
+        	[self.tableView.pullToRefreshView stopAnimating];
+		    [self.tableView reloadData];
+            [self.tableView scrollToRowAtIndexPath:tempPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        } else {
+            [self.tableView reloadData];
+            [self.tableView.infiniteScrollingView stopAnimating];
+        }
+
 		
 	} failure:nil];
 

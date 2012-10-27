@@ -11,6 +11,8 @@
 		E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881D15E975BA0007D673 /* FlyerBackViewController.m */; };
 		E993F1F3163C078A000D453B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E993F1F2163C078A000D453B /* SystemConfiguration.framework */; };
 		E993F1F5163C09D8000D453B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E993F1F4163C09D8000D453B /* Default-568h@2x.png */; };
+		E993F1FC163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E993F1F9163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m */; };
+		E993F1FD163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E993F1FB163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m */; };
 		E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6915E13E7B00EACAC6 /* UIKit.framework */; };
 		E9945B6C15E13E7B00EACAC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6B15E13E7B00EACAC6 /* Foundation.framework */; };
 		E9945B6E15E13E7B00EACAC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6D15E13E7B00EACAC6 /* CoreGraphics.framework */; };
@@ -25,7 +27,6 @@
 		E9945B9815E1424200EACAC6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945B9715E1424200EACAC6 /* Default.png */; };
 		E9945B9A15E1424700EACAC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945B9915E1424700EACAC6 /* Default@2x.png */; };
 		E9945B9C15E3E39E00EACAC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B9B15E3E39E00EACAC6 /* QuartzCore.framework */; };
-		E9945BA015E3E57F00EACAC6 /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945B9F15E3E57F00EACAC6 /* SVPullToRefresh.m */; };
 		E9945BA315E4025800EACAC6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BA115E4025800EACAC6 /* logo.png */; };
 		E9945BA415E4025800EACAC6 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BA215E4025800EACAC6 /* logo@2x.png */; };
 		E9945BBB15E4165B00EACAC6 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BA715E4165B00EACAC6 /* AFHTTPClient.m */; };
@@ -55,6 +56,11 @@
 		E92F881D15E975BA0007D673 /* FlyerBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerBackViewController.m; sourceTree = "<group>"; };
 		E993F1F2163C078A000D453B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E993F1F4163C09D8000D453B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E993F1F7163C0DA1000D453B /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		E993F1F8163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		E993F1F9163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		E993F1FA163C0DA1000D453B /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		E993F1FB163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		E9945B6515E13E7B00EACAC6 /* klubitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klubitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9945B6915E13E7B00EACAC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E9945B6B15E13E7B00EACAC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,8 +81,6 @@
 		E9945B9715E1424200EACAC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E9945B9915E1424700EACAC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E9945B9B15E3E39E00EACAC6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		E9945B9E15E3E57F00EACAC6 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
-		E9945B9F15E3E57F00EACAC6 /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
 		E9945BA115E4025800EACAC6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E9945BA215E4025800EACAC6 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		E9945BA615E4165B00EACAC6 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -128,6 +132,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E993F1F6163C0DA1000D453B /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				E993F1F7163C0DA1000D453B /* SVPullToRefresh.h */,
+				E993F1F8163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.h */,
+				E993F1F9163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m */,
+				E993F1FA163C0DA1000D453B /* UIScrollView+SVPullToRefresh.h */,
+				E993F1FB163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		E9945B5A15E13E7B00EACAC6 = {
 			isa = PBXGroup;
 			children = (
@@ -215,16 +231,6 @@
 			name = GFX;
 			sourceTree = "<group>";
 		};
-		E9945B9D15E3E57F00EACAC6 /* SVPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				E9945B9E15E3E57F00EACAC6 /* SVPullToRefresh.h */,
-				E9945B9F15E3E57F00EACAC6 /* SVPullToRefresh.m */,
-			);
-			name = SVPullToRefresh;
-			path = ../SVPullToRefresh;
-			sourceTree = "<group>";
-		};
 		E9945BA515E4165B00EACAC6 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,8 +261,8 @@
 		E9945BC915E907B200EACAC6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E993F1F6163C0DA1000D453B /* SVPullToRefresh */,
 				E9945BCA15E907E100EACAC6 /* IOSBoilerplate */,
-				E9945B9D15E3E57F00EACAC6 /* SVPullToRefresh */,
 				E9945BA515E4165B00EACAC6 /* AFNetworking */,
 			);
 			name = Helpers;
@@ -374,7 +380,6 @@
 				E9945B7A15E13E7C00EACAC6 /* AppDelegate.m in Sources */,
 				E9945B8015E13E7C00EACAC6 /* MasterViewController.m in Sources */,
 				E9945B8315E13E7C00EACAC6 /* DetailViewController.m in Sources */,
-				E9945BA015E3E57F00EACAC6 /* SVPullToRefresh.m in Sources */,
 				E9945BBB15E4165B00EACAC6 /* AFHTTPClient.m in Sources */,
 				E9945BBC15E4165B00EACAC6 /* AFHTTPRequestOperation.m in Sources */,
 				E9945BBD15E4165B00EACAC6 /* AFImageRequestOperation.m in Sources */,
@@ -387,6 +392,8 @@
 				E9945BCD15E907E100EACAC6 /* DictionaryHelper.m in Sources */,
 				E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */,
 				E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */,
+				E993F1FC163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				E993F1FD163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
