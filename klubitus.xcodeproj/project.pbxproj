@@ -10,6 +10,7 @@
 		E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881915E93FFE0007D673 /* FlyerViewController.m */; };
 		E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881D15E975BA0007D673 /* FlyerBackViewController.m */; };
 		E993F1F3163C078A000D453B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E993F1F2163C078A000D453B /* SystemConfiguration.framework */; };
+		E993F1F5163C09D8000D453B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E993F1F4163C09D8000D453B /* Default-568h@2x.png */; };
 		E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6915E13E7B00EACAC6 /* UIKit.framework */; };
 		E9945B6C15E13E7B00EACAC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6B15E13E7B00EACAC6 /* Foundation.framework */; };
 		E9945B6E15E13E7B00EACAC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6D15E13E7B00EACAC6 /* CoreGraphics.framework */; };
@@ -53,6 +54,7 @@
 		E92F881C15E975BA0007D673 /* FlyerBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerBackViewController.h; sourceTree = "<group>"; };
 		E92F881D15E975BA0007D673 /* FlyerBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerBackViewController.m; sourceTree = "<group>"; };
 		E993F1F2163C078A000D453B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E993F1F4163C09D8000D453B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E9945B6515E13E7B00EACAC6 /* klubitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klubitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9945B6915E13E7B00EACAC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E9945B6B15E13E7B00EACAC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,6 +131,7 @@
 		E9945B5A15E13E7B00EACAC6 = {
 			isa = PBXGroup;
 			children = (
+				E993F1F4163C09D8000D453B /* Default-568h@2x.png */,
 				E9945B9915E1424700EACAC6 /* Default@2x.png */,
 				E9945B9715E1424200EACAC6 /* Default.png */,
 				E9945B9115E1409D00EACAC6 /* appicon_114x114.png */,
@@ -356,6 +359,7 @@
 				E9D4862A15EA6C1E001D84F4 /* Localizable.strings in Resources */,
 				E9D4862E15EBCF2C001D84F4 /* MainStoryboard.strings in Resources */,
 				E9D4863115EBCF57001D84F4 /* MainStoryboard.strings in Resources */,
+				E993F1F5163C09D8000D453B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
