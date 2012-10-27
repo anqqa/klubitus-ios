@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9144D46163C454600192BD4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9144D45163C454600192BD4 /* MessageUI.framework */; };
+		E9144D4D163C4D8A00192BD4 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9144D49163C4D8A00192BD4 /* SVModalWebViewController.m */; };
+		E9144D4E163C4D8A00192BD4 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9144D4A163C4D8A00192BD4 /* SVWebViewController.bundle */; };
+		E9144D4F163C4D8A00192BD4 /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9144D4C163C4D8A00192BD4 /* SVWebViewController.m */; };
 		E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881915E93FFE0007D673 /* FlyerViewController.m */; };
 		E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881D15E975BA0007D673 /* FlyerBackViewController.m */; };
 		E9881407163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E9881404163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m */; };
 		E9881408163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */; };
 		E988140D163C237A004F3529 /* DictionaryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E988140C163C237A004F3529 /* DictionaryHelper.m */; };
+		E988140F163C380C004F3529 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = E988140E163C380C004F3529 /* background.png */; };
 		E993F1F3163C078A000D453B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E993F1F2163C078A000D453B /* SystemConfiguration.framework */; };
 		E993F1F5163C09D8000D453B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E993F1F4163C09D8000D453B /* Default-568h@2x.png */; };
 		E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6915E13E7B00EACAC6 /* UIKit.framework */; };
@@ -50,6 +55,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9144D45163C454600192BD4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E9144D48163C4D8A00192BD4 /* SVModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVModalWebViewController.h; sourceTree = "<group>"; };
+		E9144D49163C4D8A00192BD4 /* SVModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVModalWebViewController.m; sourceTree = "<group>"; };
+		E9144D4A163C4D8A00192BD4 /* SVWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVWebViewController.bundle; sourceTree = "<group>"; };
+		E9144D4B163C4D8A00192BD4 /* SVWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVWebViewController.h; sourceTree = "<group>"; };
+		E9144D4C163C4D8A00192BD4 /* SVWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewController.m; sourceTree = "<group>"; };
 		E92F881815E93FFE0007D673 /* FlyerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerViewController.h; sourceTree = "<group>"; };
 		E92F881915E93FFE0007D673 /* FlyerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerViewController.m; sourceTree = "<group>"; };
 		E92F881C15E975BA0007D673 /* FlyerBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerBackViewController.h; sourceTree = "<group>"; };
@@ -61,6 +72,7 @@
 		E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		E988140B163C237A004F3529 /* DictionaryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryHelper.h; sourceTree = "<group>"; };
 		E988140C163C237A004F3529 /* DictionaryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryHelper.m; sourceTree = "<group>"; };
+		E988140E163C380C004F3529 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = SOURCE_ROOT; };
 		E993F1F2163C078A000D453B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E993F1F4163C09D8000D453B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E9945B6515E13E7B00EACAC6 /* klubitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klubitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9144D46163C454600192BD4 /* MessageUI.framework in Frameworks */,
 				E993F1F3163C078A000D453B /* SystemConfiguration.framework in Frameworks */,
 				E9945B9C15E3E39E00EACAC6 /* QuartzCore.framework in Frameworks */,
 				E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */,
@@ -132,6 +145,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9144D47163C4D8A00192BD4 /* SVWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E9144D48163C4D8A00192BD4 /* SVModalWebViewController.h */,
+				E9144D49163C4D8A00192BD4 /* SVModalWebViewController.m */,
+				E9144D4A163C4D8A00192BD4 /* SVWebViewController.bundle */,
+				E9144D4B163C4D8A00192BD4 /* SVWebViewController.h */,
+				E9144D4C163C4D8A00192BD4 /* SVWebViewController.m */,
+			);
+			path = SVWebViewController;
+			sourceTree = SOURCE_ROOT;
+		};
 		E9881401163C22CD004F3529 /* SVPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +203,7 @@
 		E9945B6815E13E7B00EACAC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9144D45163C454600192BD4 /* MessageUI.framework */,
 				E993F1F2163C078A000D453B /* SystemConfiguration.framework */,
 				E9945B9B15E3E39E00EACAC6 /* QuartzCore.framework */,
 				E9945B6915E13E7B00EACAC6 /* UIKit.framework */,
@@ -232,6 +258,7 @@
 		E9945B8A15E1405200EACAC6 /* GFX */ = {
 			isa = PBXGroup;
 			children = (
+				E988140E163C380C004F3529 /* background.png */,
 				E9945BC515E53EF400EACAC6 /* klubitus.png */,
 				E9945BC615E53EF400EACAC6 /* klubitus@2x.png */,
 				E9945BA115E4025800EACAC6 /* logo.png */,
@@ -270,9 +297,10 @@
 		E9945BC915E907B200EACAC6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E9144D47163C4D8A00192BD4 /* SVWebViewController */,
+				E9945BA515E4165B00EACAC6 /* AFNetworking */,
 				E988140A163C237A004F3529 /* IOSBoilerplate */,
 				E9881401163C22CD004F3529 /* SVPullToRefresh */,
-				E9945BA515E4165B00EACAC6 /* AFNetworking */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -366,6 +394,8 @@
 				E9D4862E15EBCF2C001D84F4 /* MainStoryboard.strings in Resources */,
 				E9D4863115EBCF57001D84F4 /* MainStoryboard.strings in Resources */,
 				E993F1F5163C09D8000D453B /* Default-568h@2x.png in Resources */,
+				E988140F163C380C004F3529 /* background.png in Resources */,
+				E9144D4E163C4D8A00192BD4 /* SVWebViewController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +424,8 @@
 				E9881407163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				E9881408163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				E988140D163C237A004F3529 /* DictionaryHelper.m in Sources */,
+				E9144D4D163C4D8A00192BD4 /* SVModalWebViewController.m in Sources */,
+				E9144D4F163C4D8A00192BD4 /* SVWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

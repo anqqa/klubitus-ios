@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "DictionaryHelper.h"
+#import "SVModalWebViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface DetailViewController ()
@@ -137,7 +138,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	self.view.backgroundColor     = [UIColor colorWithWhite:0.12 alpha:1];
+//	self.view.backgroundColor     = [UIColor colorWithWhite:0.12 alpha:1];
+	self.view.backgroundColor     = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
 	separatorView.backgroundColor = separator2View.backgroundColor = [UIColor colorWithWhite:0.17 alpha:1];
 		
 	// Do any additional setup after loading the view, typically from a nib.
@@ -163,6 +165,21 @@
 	if ([[segue identifier] isEqualToString:@"showFlyer"]) {
 		[[segue destinationViewController] setDetailItem:self.detailItem];
 	}
+}
+
+
+/**
+ Show browser.
+ */
+- (IBAction)openBrowser:(id)sender {
+	NSDictionary *event = self.detailItem;
+	NSString *url       = [event stringForKey:@"url"];
+	
+	SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:url];
+	webViewController.barsTintColor = [UIColor blackColor];
+	webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsCopyLink;
+	
+	[self presentModalViewController:webViewController animated:YES];
 }
 
 @end

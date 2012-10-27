@@ -49,7 +49,9 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.tableView.backgroundColor = [UIColor colorWithWhite:0.12 alpha:1];
+	// Background image
+//	self.tableView.backgroundColor = [UIColor colorWithWhite:0.12 alpha:1];
+	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
 	self.tableView.separatorColor  = [UIColor colorWithWhite:0.17 alpha:1];
 	//self.tableView.rowHeight       = 60;
 	
@@ -156,16 +158,15 @@
 		self.lastDay = [self timeToDate:[self.lastDay dateByAddingTimeInterval:(60 * 60 * 25)]];
 	
 		// Refresh table and jump to new section if needed
-		
 		if ([inputOrder isEqualToString:@"desc"]) {
-
 			NSIndexPath *tempPath = [NSIndexPath indexPathForRow:0 inSection:newSections];
-        	[self.tableView.pullToRefreshView stopAnimating];
-		    [self.tableView reloadData];
-            [self.tableView scrollToRowAtIndexPath:tempPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
+			[self.tableView.pullToRefreshView stopAnimating];
+			[self.tableView reloadData];
+			[self.tableView scrollToRowAtIndexPath:tempPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
         } else {
-            [self.tableView reloadData];
-            [self.tableView.infiniteScrollingView stopAnimating];
+			[self.tableView reloadData];
+			[self.tableView.infiniteScrollingView stopAnimating];
         }
 
 		

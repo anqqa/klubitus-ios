@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController {
+	IBOutlet UIBarButtonItem   *webButton;
 	IBOutlet UIImageView      *flyerImage;
 	IBOutlet UIButton        *flyerButton;
 	IBOutlet UILabel           *nameLabel;
