@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881915E93FFE0007D673 /* FlyerViewController.m */; };
 		E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881D15E975BA0007D673 /* FlyerBackViewController.m */; };
+		E9881407163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E9881404163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m */; };
+		E9881408163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */; };
 		E993F1F3163C078A000D453B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E993F1F2163C078A000D453B /* SystemConfiguration.framework */; };
 		E993F1F5163C09D8000D453B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E993F1F4163C09D8000D453B /* Default-568h@2x.png */; };
-		E993F1FC163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E993F1F9163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m */; };
-		E993F1FD163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E993F1FB163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m */; };
 		E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6915E13E7B00EACAC6 /* UIKit.framework */; };
 		E9945B6C15E13E7B00EACAC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6B15E13E7B00EACAC6 /* Foundation.framework */; };
 		E9945B6E15E13E7B00EACAC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6D15E13E7B00EACAC6 /* CoreGraphics.framework */; };
@@ -54,13 +54,13 @@
 		E92F881915E93FFE0007D673 /* FlyerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerViewController.m; sourceTree = "<group>"; };
 		E92F881C15E975BA0007D673 /* FlyerBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerBackViewController.h; sourceTree = "<group>"; };
 		E92F881D15E975BA0007D673 /* FlyerBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerBackViewController.m; sourceTree = "<group>"; };
+		E9881402163C22CD004F3529 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		E9881403163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		E9881404163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		E9881405163C22CD004F3529 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		E993F1F2163C078A000D453B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E993F1F4163C09D8000D453B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		E993F1F7163C0DA1000D453B /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
-		E993F1F8163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
-		E993F1F9163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
-		E993F1FA163C0DA1000D453B /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
-		E993F1FB163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		E9945B6515E13E7B00EACAC6 /* klubitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klubitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9945B6915E13E7B00EACAC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E9945B6B15E13E7B00EACAC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,17 +132,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E993F1F6163C0DA1000D453B /* SVPullToRefresh */ = {
+		E9881401163C22CD004F3529 /* SVPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				E993F1F7163C0DA1000D453B /* SVPullToRefresh.h */,
-				E993F1F8163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.h */,
-				E993F1F9163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m */,
-				E993F1FA163C0DA1000D453B /* UIScrollView+SVPullToRefresh.h */,
-				E993F1FB163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m */,
+				E9881402163C22CD004F3529 /* SVPullToRefresh.h */,
+				E9881403163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.h */,
+				E9881404163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m */,
+				E9881405163C22CD004F3529 /* UIScrollView+SVPullToRefresh.h */,
+				E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */,
 			);
 			path = SVPullToRefresh;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		E9945B5A15E13E7B00EACAC6 = {
 			isa = PBXGroup;
@@ -261,7 +261,7 @@
 		E9945BC915E907B200EACAC6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E993F1F6163C0DA1000D453B /* SVPullToRefresh */,
+				E9881401163C22CD004F3529 /* SVPullToRefresh */,
 				E9945BCA15E907E100EACAC6 /* IOSBoilerplate */,
 				E9945BA515E4165B00EACAC6 /* AFNetworking */,
 			);
@@ -392,8 +392,8 @@
 				E9945BCD15E907E100EACAC6 /* DictionaryHelper.m in Sources */,
 				E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */,
 				E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */,
-				E993F1FC163C0DA1000D453B /* UIScrollView+SVInfiniteScrolling.m in Sources */,
-				E993F1FD163C0DA1000D453B /* UIScrollView+SVPullToRefresh.m in Sources */,
+				E9881407163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				E9881408163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
