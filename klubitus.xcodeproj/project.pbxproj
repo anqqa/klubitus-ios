@@ -11,6 +11,7 @@
 		E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92F881D15E975BA0007D673 /* FlyerBackViewController.m */; };
 		E9881407163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E9881404163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m */; };
 		E9881408163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */; };
+		E988140D163C237A004F3529 /* DictionaryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E988140C163C237A004F3529 /* DictionaryHelper.m */; };
 		E993F1F3163C078A000D453B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E993F1F2163C078A000D453B /* SystemConfiguration.framework */; };
 		E993F1F5163C09D8000D453B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E993F1F4163C09D8000D453B /* Default-568h@2x.png */; };
 		E9945B6A15E13E7B00EACAC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9945B6915E13E7B00EACAC6 /* UIKit.framework */; };
@@ -40,7 +41,6 @@
 		E9945BC415E4165B00EACAC6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BBA15E4165B00EACAC6 /* UIImageView+AFNetworking.m */; };
 		E9945BC715E53EF400EACAC6 /* klubitus.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BC515E53EF400EACAC6 /* klubitus.png */; };
 		E9945BC815E53EF400EACAC6 /* klubitus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9945BC615E53EF400EACAC6 /* klubitus@2x.png */; };
-		E9945BCD15E907E100EACAC6 /* DictionaryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9945BCC15E907E100EACAC6 /* DictionaryHelper.m */; };
 		E9D4862615EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861915EA6C1E001D84F4 /* InfoPlist.strings */; };
 		E9D4862715EA6C1E001D84F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4861B15EA6C1E001D84F4 /* Localizable.strings */; };
 		E9D4862915EA6C1E001D84F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9D4862015EA6C1E001D84F4 /* InfoPlist.strings */; };
@@ -59,6 +59,8 @@
 		E9881404163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		E9881405163C22CD004F3529 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		E988140B163C237A004F3529 /* DictionaryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryHelper.h; sourceTree = "<group>"; };
+		E988140C163C237A004F3529 /* DictionaryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryHelper.m; sourceTree = "<group>"; };
 		E993F1F2163C078A000D453B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E993F1F4163C09D8000D453B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E9945B6515E13E7B00EACAC6 /* klubitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klubitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,8 +106,6 @@
 		E9945BBA15E4165B00EACAC6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		E9945BC515E53EF400EACAC6 /* klubitus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = klubitus.png; sourceTree = "<group>"; };
 		E9945BC615E53EF400EACAC6 /* klubitus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klubitus@2x.png"; sourceTree = "<group>"; };
-		E9945BCB15E907E100EACAC6 /* DictionaryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryHelper.h; sourceTree = "<group>"; };
-		E9945BCC15E907E100EACAC6 /* DictionaryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryHelper.m; sourceTree = "<group>"; };
 		E9D4861615EA656B001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = fi.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E9D4861715EA656B001D84F4 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9D4861A15EA6C1E001D84F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -142,6 +142,15 @@
 				E9881406163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m */,
 			);
 			path = SVPullToRefresh;
+			sourceTree = SOURCE_ROOT;
+		};
+		E988140A163C237A004F3529 /* IOSBoilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				E988140B163C237A004F3529 /* DictionaryHelper.h */,
+				E988140C163C237A004F3529 /* DictionaryHelper.m */,
+			);
+			path = IOSBoilerplate;
 			sourceTree = SOURCE_ROOT;
 		};
 		E9945B5A15E13E7B00EACAC6 = {
@@ -261,20 +270,11 @@
 		E9945BC915E907B200EACAC6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E988140A163C237A004F3529 /* IOSBoilerplate */,
 				E9881401163C22CD004F3529 /* SVPullToRefresh */,
-				E9945BCA15E907E100EACAC6 /* IOSBoilerplate */,
 				E9945BA515E4165B00EACAC6 /* AFNetworking */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		E9945BCA15E907E100EACAC6 /* IOSBoilerplate */ = {
-			isa = PBXGroup;
-			children = (
-				E9945BCB15E907E100EACAC6 /* DictionaryHelper.h */,
-				E9945BCC15E907E100EACAC6 /* DictionaryHelper.m */,
-			);
-			path = IOSBoilerplate;
 			sourceTree = "<group>";
 		};
 		E9D4861815EA6C1E001D84F4 /* en.lproj */ = {
@@ -389,11 +389,11 @@
 				E9945BC215E4165B00EACAC6 /* AFURLConnectionOperation.m in Sources */,
 				E9945BC315E4165B00EACAC6 /* AFXMLRequestOperation.m in Sources */,
 				E9945BC415E4165B00EACAC6 /* UIImageView+AFNetworking.m in Sources */,
-				E9945BCD15E907E100EACAC6 /* DictionaryHelper.m in Sources */,
 				E92F881A15E93FFE0007D673 /* FlyerViewController.m in Sources */,
 				E92F881E15E975BA0007D673 /* FlyerBackViewController.m in Sources */,
 				E9881407163C22CD004F3529 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				E9881408163C22CD004F3529 /* UIScrollView+SVPullToRefresh.m in Sources */,
+				E988140D163C237A004F3529 /* DictionaryHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
