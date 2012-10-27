@@ -15,8 +15,8 @@
     // Override point for customization after application launch.
 	[GAI sharedInstance].trackUncaughtExceptions = YES;
 	[GAI sharedInstance].dispatchInterval        = 10;
-	[GAI sharedInstance].debug                   = YES;
-	id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-123675-16"];
+//	[GAI sharedInstance].debug                   = YES;
+	[[GAI sharedInstance] trackerWithTrackingId:@"UA-123675-16"];
 	
     return YES;
 }
