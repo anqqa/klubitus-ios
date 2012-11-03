@@ -205,7 +205,6 @@
 		E9945B5A15E13E7B00EACAC6 = {
 			isa = PBXGroup;
 			children = (
-				E9A5AA87163C526C002562CD /* CoreData.framework */,
 				E993F1F4163C09D8000D453B /* Default-568h@2x.png */,
 				E9945B9915E1424700EACAC6 /* Default@2x.png */,
 				E9945B9715E1424200EACAC6 /* Default.png */,
@@ -228,6 +227,7 @@
 		E9945B6815E13E7B00EACAC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9A5AA87163C526C002562CD /* CoreData.framework */,
 				E9144D45163C454600192BD4 /* MessageUI.framework */,
 				E993F1F2163C078A000D453B /* SystemConfiguration.framework */,
 				E9945B9B15E3E39E00EACAC6 /* QuartzCore.framework */,
@@ -583,7 +583,7 @@
 		E9945B8715E13E7C00EACAC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
@@ -593,8 +593,10 @@
 					"\"$(SRCROOT)/GoogleAnalyticsiOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -602,7 +604,8 @@
 		E9945B8815E13E7C00EACAC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "klubitus/klubitus-Prefix.pch";
 				INFOPLIST_FILE = "klubitus/klubitus-Info.plist";
@@ -612,8 +615,11 @@
 					"\"$(SRCROOT)/GoogleAnalyticsiOS\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos5.1;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
